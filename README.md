@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# GIK-client
-GIK project
-=======
 # GIK-client rule
 
 ## naming rule
@@ -35,4 +31,3 @@ GIK project
       ex) git commit -m "Add facebook Oauth"
 
 ### 수정 및 추가하고 싶은 내용들도 여기다 적어주시기 바랍니다.
->>>>>>> develop
