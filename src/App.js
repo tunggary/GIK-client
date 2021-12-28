@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import styled, { ThemeProvider } from "styled-components";
+import { GlobalStyles } from "./styles/styles";
+import theme from "./styles/theme";
+import Header from "./components/Header";
+import Logo from "./components/Logo";
+import Router from "./Router";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <GlobalStyles />
+        <Logo />
+        <Contents>
+          <Header />
+          <Router />
+        </Contents>
+      </Container>
+    </ThemeProvider>
   );
 }
 
-export default App;
+const Container = styled.div`
+  font-family: "Futura";
+  width: 100%;
+`;
+
+const Contents = styled.div`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+`;
