@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/GIK-client/static/js/main.4cf1dd50.js",
+    "main.js": "/GIK-client/static/js/main.9120bc70.js",
     "static/media/Futura Medium.otf": "/GIK-client/static/media/Futura Medium.b4abcb4bbe7b5984f519.otf",
     "index.html": "/GIK-client/index.html",
-    "main.4cf1dd50.js.map": "/GIK-client/static/js/main.4cf1dd50.js.map"
+    "main.9120bc70.js.map": "/GIK-client/static/js/main.9120bc70.js.map"
   },
   "entrypoints": [
-    "static/js/main.4cf1dd50.js"
+    "static/js/main.9120bc70.js"
   ]
 }
