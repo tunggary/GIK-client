@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
-import Futura from "./fonts/Futura Medium.otf";
+import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
+import Futura from './fonts/Futura Medium.otf';
 
 export const GlobalStyles = createGlobalStyle`
   ${reset}
