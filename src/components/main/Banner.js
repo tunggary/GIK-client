@@ -19,7 +19,6 @@ export default function Banner() {
         autoplay={{ delay: 4000 }}
         pagination={{ clickable: true }}
       >
-        dfs
         <SwiperSlide>
           <SwiperImg src="./img/example1.jpeg" />
         </SwiperSlide>

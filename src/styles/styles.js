@@ -40,6 +40,9 @@ export const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
     color:inherit;
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
   }
   @font-face {
         font-family: "Futura";
@@ -49,3 +52,5 @@ export const GlobalStyles = createGlobalStyle`
         font-style: normal;
     }
 `;
+
+export const gitUrl = '/GIK-client';

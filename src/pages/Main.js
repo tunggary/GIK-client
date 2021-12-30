@@ -5,7 +5,7 @@ export default function main() {
   return (
     <Container>
       <Banner />
-      <InfoWrapper> dddddddd</InfoWrapper>
+      <InfoWrapper></InfoWrapper>
     </Container>
   );
 }

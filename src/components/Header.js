@@ -1,10 +1,14 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { gitUrl } from '../styles/styles';
 
 export default function Header() {
   return (
     <Container>
       <MenuWrapper>
-        <MenuList>Exhibition</MenuList>
+        <MenuList>
+          <Link to={`${gitUrl}/exhibition`}>Exhibition</Link>
+        </MenuList>
         <MenuList>Goods</MenuList>
         <MenuList>Community</MenuList>
       </MenuWrapper>
@@ -20,6 +24,7 @@ export default function Header() {
 }
 
 const Container = styled.nav`
+  font-family: 'Futura';
   width: 100%;
   height: 4rem;
   background-color: black;
