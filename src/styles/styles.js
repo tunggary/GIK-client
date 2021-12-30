@@ -8,6 +8,7 @@ export const GlobalStyles = createGlobalStyle`
     /*========== Colors ==========*/
     --white: #ffffff;
     --grey-hover: #b4b4b4;
+    --black-title: #1C1C1E;
     
     /*========== Font Weights ==========*/
     --thin: 100;
