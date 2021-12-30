@@ -14,5 +14,4 @@ const Container = styled.div``;
 const InfoWrapper = styled.div`
   width: 100%;
   height: 500px;
-  background-color: blue;
 `;
