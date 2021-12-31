@@ -7,7 +7,10 @@ export const GlobalStyles = createGlobalStyle`
   :root {
     /*========== Colors ==========*/
     --white: #ffffff;
+    --black-header: #1c1c1e;
     --grey-hover: #b4b4b4;
+    --grey-hover-2: #f3f3f3;
+    --grey3: #e5e5ea; 
     
     /*========== Font Weights ==========*/
     --thin: 100;

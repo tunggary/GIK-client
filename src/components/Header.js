@@ -1,16 +1,18 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { gitUrl } from '../styles/styles';
 
 export default function Header() {
+  const location = useLocation();
+  const path = location.pathname.replace(gitUrl, '');
   return (
     <Container>
       <MenuWrapper>
-        <MenuList>
+        <MenuList active={path === '/exhibition'}>
           <Link to={`${gitUrl}/exhibition`}>Exhibition</Link>
         </MenuList>
-        <MenuList>Goods</MenuList>
-        <MenuList>Community</MenuList>
+        <MenuList active={path === '/goods'}>Goods</MenuList>
+        <MenuList active={path === '/community'}>Community</MenuList>
       </MenuWrapper>
       <SearchWrapper>
         <SearchIcon src="./svg/search-icon.svg" />
@@ -27,7 +29,7 @@ const Container = styled.nav`
   font-family: 'Futura';
   width: 100%;
   height: 4rem;
-  background-color: black;
+  background-color: var(--black-header);
   display: flex;
 `;
 
@@ -40,12 +42,15 @@ const MenuWrapper = styled.ul`
 `;
 
 const MenuList = styled.li`
-  width: 30%;
-  height: max-content;
-  color: var(--white);
-  text-align: center;
+  width: 33%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ active }) => (active ? 'var(--white)' : 'var(--black-header)')};
+  color: ${({ active }) => (active ? 'var(--black-header)' : 'var(--white)')};
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
   &:hover {
     color: var(--grey-hover);
   }
