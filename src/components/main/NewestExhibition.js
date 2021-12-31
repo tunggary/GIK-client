@@ -10,12 +10,29 @@ export default function NewestExhibition() {
         <ExhibitionDetailWrapper>
           <ExhibitionImg src="./svg/exhibitionSample1.svg" />
           <ExhibitionDetailsWrapper>
-            <ExhibitionNameWrapper></ExhibitionNameWrapper>
-            <ExhibitionDateWrapper></ExhibitionDateWrapper>
-            <ExhibitionLinkWrapper></ExhibitionLinkWrapper>
+            <ExhibitionNameWrapper>금속조형디자인과 졸업전시</ExhibitionNameWrapper>
+            <ExhibitionDateWrapper>
+              offline : 2021.11.08 <br />~ 11.12
+            </ExhibitionDateWrapper>
+            <ExhibitionLinkWrapper>
+              <ExhibitionLink>online link</ExhibitionLink>
+              <ExhibitionLinkIcon src="./svg/right-arrow.svg" />
+            </ExhibitionLinkWrapper>
           </ExhibitionDetailsWrapper>
         </ExhibitionDetailWrapper>
-        <ExhibitionDetailWrapper></ExhibitionDetailWrapper>
+        <ExhibitionDetailWrapper>
+          <ExhibitionImg src="./svg/exhibition-sample2.svg" />
+          <ExhibitionDetailsWrapper>
+            <ExhibitionNameWrapper>섬유미술패션디자인과 졸업전시</ExhibitionNameWrapper>
+            <ExhibitionDateWrapper>
+              offline : 2021.11.08 <br />~ 11.12
+            </ExhibitionDateWrapper>
+            <ExhibitionLinkWrapper>
+              <ExhibitionLink>online link</ExhibitionLink>
+              <ExhibitionLinkIcon src="./svg/right-arrow.svg" />
+            </ExhibitionLinkWrapper>
+          </ExhibitionDetailsWrapper>
+        </ExhibitionDetailWrapper>
       </ExhibitionWrapper>
     </Container>
   );
@@ -62,30 +79,53 @@ const ExhibitionDetailWrapper = styled.div`
 `;
 
 const ExhibitionImg = styled.img`
-  width: 13rem;
-  height: 16rem;
+  width: 50%;
+  height: 90%;
   cursor: pointer;
 `;
 
 const ExhibitionDetailsWrapper = styled.div`
   width: 40%;
   height: 92%;
-  background-color: black;
 `;
 
 const ExhibitionNameWrapper = styled.div`
   width: 100%;
-  height: 25%;
-  background-color: white;
+  height: 30%;
+  font-family: 'Roboto';
+  font-size: var(--h3);
+  color: var(--black);
+  font-weight: var(--regular);
+  line-height: 130%;
 `;
+
 const ExhibitionDateWrapper = styled.div`
   width: 100%;
-  height: 50%;
-  background-color: green;
+  height: 40%;
+  font-family: 'Futura';
+  font-size: var(--h3);
+  color: var(--grey-subtitle);
+  font-weight: var(--light);
+  line-height: 130%;
 `;
 
 const ExhibitionLinkWrapper = styled.div`
-  width: 100%;
+  width: 90%;
   height: 25%;
-  background-color: pink;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+`;
+
+const ExhibitionLink = styled.div`
+  width: 80%;
+  height: max-content;
+  color: var(--grey-subtitle);
+  font-weight: var(--light);
+`;
+
+const ExhibitionLinkIcon = styled.img`
+  width: 2rem;
+  height: 1.4rem;
+  cursor: pointer;
 `;

@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset';
+import { reset } from 'styled-reset';
 import Futura from './fonts/Futura Medium.otf';
 
 export const GlobalStyles = createGlobalStyle`
@@ -9,6 +9,8 @@ export const GlobalStyles = createGlobalStyle`
     --white: #ffffff;
     --grey-hover: #b4b4b4;
     --black-title: #1C1C1E;
+    --black: #000000;
+    --grey-subtitle: #636366;
     
     /*========== Font Weights ==========*/
     --thin: 100;
