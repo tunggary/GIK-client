@@ -35,7 +35,6 @@ export default function NewGoods() {
 const Container = styled.div`
   width: 100%;
   height: 70%;
-  background-color: black;
   margin-top: 2%;
 `;
 const CategoryWrapper = styled.div`
@@ -64,7 +63,6 @@ const GoodsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: green;
 `;
 
 const GoodsDetailWrapper = styled.div`
@@ -86,7 +84,6 @@ const GoodsTitle = styled.div`
   color: var(--grey-subtitle);
   font-size: var(--h2);
   font-weight: var(--bold);
-  background-color: purple;
   cursor: pointer;
 `;
 
@@ -97,6 +94,5 @@ const GoodsSubtitle = styled.div`
   color: var(--grey-subsubtitle);
   font-size: var(--normal);
   font-weight: var(--bold);
-  background-color: pink;
   cursor: pointer;
 `;
