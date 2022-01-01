@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
     --black-title: #1C1C1E;
     --black: #000000;
     --grey-subtitle: #636366;
+    --grey-subsubtitle: #8E8E93;
     
     /*========== Font Weights ==========*/
     --thin: 100;
