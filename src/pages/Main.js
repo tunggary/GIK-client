@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Banner from '../components/main/Banner';
 import NewestExhibition from '../components/main/NewestExhibition';
+import NewGoods from '../components/main/NewGoods';
 
 export default function main() {
   return (
@@ -8,6 +9,7 @@ export default function main() {
       <Banner />
       <InfoWrapper>
         <NewestExhibition></NewestExhibition>
+        <NewGoods></NewGoods>
       </InfoWrapper>
     </Container>
   );
