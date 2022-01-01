@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
     --grey-hover: #b4b4b4;
     --grey-hover-2: #f3f3f3;
     --grey3: #e5e5ea; 
+    --grey-link: #636366;
     
     /*========== Font Weights ==========*/
     --thin: 100;

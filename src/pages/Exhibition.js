@@ -107,16 +107,7 @@ export default function Exhibition() {
         </ExhibitHeader>
         <ExhibitionWrapper>
           {data?.map((content) => {
-            return (
-              <ExhibitContent
-                key={content.id}
-                title={content.title}
-                subtitle={content.subtitle}
-                poster={content.poster}
-                startDate={content.startDate}
-                endDate={content.endDate}
-              />
-            );
+            return <ExhibitContent key={content.id} data={content} />;
           })}
         </ExhibitionWrapper>
       </ExhibitWrapper>
@@ -183,7 +174,7 @@ const ExhibitFilter = styled.div`
   align-items: center;
   text-align: center;
   cursor: pointer;
-  color: ${({ check }) => (check ? '#000000' : '#636366')};
+  color: ${({ check }) => (check ? '#000000' : 'var(--grey-link)')};
   &:hover {
     color: black;
   }
