@@ -1,12 +1,28 @@
 import styled from 'styled-components';
+import { Link, useLocation } from 'react-router-dom';
+import { gitUrl } from '../styles/styles';
 
 export default function Header() {
+  const location = useLocation();
+  const path = location.pathname.replace(gitUrl, '');
   return (
     <Container>
       <MenuWrapper>
-        <MenuList>Exhibition</MenuList>
-        <MenuList>Goods</MenuList>
-        <MenuList>Community</MenuList>
+        <MenuList active={path === '/exhibition' || path === '/exhibitionDetail'}>
+          <Link style={LinkStyle} to={`${gitUrl}/exhibition`}>
+            Exhibition
+          </Link>
+        </MenuList>
+        <MenuList active={path === '/goods'}>
+          <Link style={LinkStyle} to={`${gitUrl}/goods`}>
+            Goods
+          </Link>
+        </MenuList>
+        <MenuList active={path === '/community'}>
+          <Link style={LinkStyle} to={`${gitUrl}/community`}>
+            Community
+          </Link>
+        </MenuList>
       </MenuWrapper>
       <SearchWrapper>
         <SearchIcon src="./svg/search-icon.svg" />
@@ -19,10 +35,19 @@ export default function Header() {
   );
 }
 
+const LinkStyle = {
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+};
+
 const Container = styled.nav`
+  font-family: 'Futura';
   width: 100%;
   height: 4rem;
-  background-color: black;
+  background-color: var(--black-header);
   display: flex;
 `;
 
@@ -35,12 +60,12 @@ const MenuWrapper = styled.ul`
 `;
 
 const MenuList = styled.li`
-  width: 30%;
-  height: max-content;
-  color: var(--white);
-  text-align: center;
+  width: 33%;
+  height: 100%;
+  background-color: ${({ active }) => (active ? 'var(--white)' : 'var(--black-header)')};
+  color: ${({ active }) => (active ? 'var(--black-header)' : 'var(--white)')};
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
   &:hover {
     color: var(--grey-hover);
   }
