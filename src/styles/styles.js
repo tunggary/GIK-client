@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     --grey-hover-2: #f3f3f3;
     --grey-subtitle: #636366;
     --grey3: #e5e5ea; 
+    --grey-link: #636366;
     --black-title: #1C1C1E;
     --black: #000000;
     

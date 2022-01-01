@@ -1,18 +1,28 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { gitUrl } from '../../styles/styles';
 
-export default function ExhibitContent({ title, subtitle, poster, startDate, endDate }) {
+export default function ExhibitContent(props) {
+  const { data } = props;
   return (
     <Container>
-      <ContentWrapper>
-        <ContentImg src={poster} />
-        <ContentInfo>
-          <ContentTitle>{title}</ContentTitle>
-          <ContentPeriod>
-            {startDate} <br /> ~ {endDate.slice(5)}
-          </ContentPeriod>
-          <ContentSubTitle>{subtitle}</ContentSubTitle>
-        </ContentInfo>
-      </ContentWrapper>
+      <Link
+        to={{
+          pathname: `${gitUrl}/exhibitionDetail`,
+          state: data,
+        }}
+      >
+        <ContentWrapper>
+          <ContentImg src={data.poster} />
+          <ContentInfo>
+            <ContentTitle>{data.title}</ContentTitle>
+            <ContentPeriod>
+              {data.startDate} <br /> ~ {data.endDate.slice(5)}
+            </ContentPeriod>
+            <ContentSubTitle>{data.subtitle}</ContentSubTitle>
+          </ContentInfo>
+        </ContentWrapper>
+      </Link>
     </Container>
   );
 }

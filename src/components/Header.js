@@ -8,11 +8,21 @@ export default function Header() {
   return (
     <Container>
       <MenuWrapper>
-        <MenuList active={path === '/exhibition'}>
-          <Link to={`${gitUrl}/exhibition`}>Exhibition</Link>
+        <MenuList active={path === '/exhibition' || path === '/exhibitionDetail'}>
+          <Link style={LinkStyle} to={`${gitUrl}/exhibition`}>
+            Exhibition
+          </Link>
         </MenuList>
-        <MenuList active={path === '/goods'}>Goods</MenuList>
-        <MenuList active={path === '/community'}>Community</MenuList>
+        <MenuList active={path === '/goods'}>
+          <Link style={LinkStyle} to={`${gitUrl}/goods`}>
+            Goods
+          </Link>
+        </MenuList>
+        <MenuList active={path === '/community'}>
+          <Link style={LinkStyle} to={`${gitUrl}/community`}>
+            Community
+          </Link>
+        </MenuList>
       </MenuWrapper>
       <SearchWrapper>
         <SearchIcon src="./svg/search-icon.svg" />
@@ -24,6 +34,14 @@ export default function Header() {
     </Container>
   );
 }
+
+const LinkStyle = {
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+};
 
 const Container = styled.nav`
   font-family: 'Futura';
@@ -44,9 +62,6 @@ const MenuWrapper = styled.ul`
 const MenuList = styled.li`
   width: 33%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: ${({ active }) => (active ? 'var(--white)' : 'var(--black-header)')};
   color: ${({ active }) => (active ? 'var(--black-header)' : 'var(--white)')};
   cursor: pointer;
