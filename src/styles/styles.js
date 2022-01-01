@@ -7,10 +7,13 @@ export const GlobalStyles = createGlobalStyle`
   :root {
     /*========== Colors ==========*/
     --white: #ffffff;
+    --black-header: #1c1c1e;
     --grey-hover: #b4b4b4;
+    --grey-hover-2: #f3f3f3;
+    --grey-subtitle: #636366;
+    --grey3: #e5e5ea; 
     --black-title: #1C1C1E;
     --black: #000000;
-    --grey-subtitle: #636366;
     
     /*========== Font Weights ==========*/
     --thin: 100;
@@ -43,6 +46,9 @@ export const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
     color:inherit;
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
   }
   @font-face {
         font-family: "Futura";
@@ -52,3 +58,5 @@ export const GlobalStyles = createGlobalStyle`
         font-style: normal;
     }
 `;
+
+export const gitUrl = '/GIK-client';
