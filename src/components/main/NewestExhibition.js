@@ -40,11 +40,11 @@ export default function NewestExhibition() {
 
 const Container = styled.div`
   width: 70%;
-  height: 70%;
+  height: 24rem;
 `;
 const CategoryWrapper = styled.div`
   width: 30%;
-  height: 30%;
+  height: 20%;
   display: flex;
   align-items: center;
   justify-content: start;
