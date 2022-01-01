@@ -17,7 +17,7 @@ const Img = styled.img`
   width: 8.8rem;
   height: 7rem;
   @media ${(props) => props.theme.tablet} {
-    width: 4.4rem;
+    width: 14.4rem;
     height: 3.5rem;
   }
 `;
