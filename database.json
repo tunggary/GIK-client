@@ -17,7 +17,8 @@
       "endDate": "2021.11.27",
       "onlineLink": "",
       "location": ["홍익대학교 문헌관 4F", "현대미술관 HOMA, 4F, Hongik Meseum of Art <Minifiction>"],
-      "dept": "동양학과"
+      "dept": "동양학과",
+      "category": "졸업 전시"
     },
     {
       "id": "ex02",
@@ -36,7 +37,8 @@
       "endDate": "2021.11.19",
       "onlineLink": "",
       "location": ["홍익대학교 문헌관 4F", "현대미술관 HOMA, 4F, Hongik Meseum of Art <Minifiction>"],
-      "dept": "섬유미술패션 디자인과"
+      "dept": "섬유미술패션 디자인과",
+      "category": "졸업 전시"
     },
     {
       "id": "ex03",
@@ -55,7 +57,8 @@
       "endDate": "2021.11.07",
       "online-link": "",
       "location": ["홍익대학교 문헌관 4F", "현대미술관 HOMA, 4F, Hongik Meseum of Art <Minifiction>"],
-      "dept": "기타"
+      "dept": "",
+      "category": "기타 전시"
     },
     {
       "id": "ex04",
@@ -74,7 +77,8 @@
       "endDate": "2021.12.11",
       "online-link": "",
       "location": ["홍익대학교 문헌관 4F", "현대미술관 HOMA, 4F, Hongik Meseum of Art <Minifiction>"],
-      "dept": "시각디자인과"
+      "dept": "시각디자인과",
+      "category": "졸업 전시"
     },
     {
       "id": "ex05",
@@ -93,7 +97,8 @@
       "endDate": "2021.12.12",
       "online-link": "",
       "location": ["홍익대학교 문헌관 4F", "현대미술관 HOMA, 4F, Hongik Meseum of Art <Minifiction>"],
-      "dept": "산업디자인과"
+      "dept": "산업디자인과",
+      "category": "졸업 전시"
     },
     {
       "id": "ex06",
@@ -112,7 +117,8 @@
       "endDate": "2021.11.12",
       "online-link": "",
       "location": ["홍익대학교 문헌관 4F", "현대미술관 HOMA, 4F, Hongik Meseum of Art <Minifiction>"],
-      "dept": "금속조형디자인과"
+      "dept": "금속조형디자인과",
+      "category": "졸업 전시"
     },
     {
       "id": "ex07",
@@ -131,7 +137,8 @@
       "endDate": "2021.12.25",
       "online-link": "",
       "location": ["홍익대학교 문헌관 4F", "현대미술관 HOMA, 4F, Hongik Meseum of Art <Minifiction>"],
-      "dept": "도예유리과"
+      "dept": "도예유리과",
+      "category": "졸업 전시"
     },
     {
       "id": "ex08",
@@ -150,7 +157,8 @@
       "endDate": "2021.12.28",
       "online-link": "",
       "location": ["홍익대학교 문헌관 4F", "현대미술관 HOMA, 4F, Hongik Meseum of Art <Minifiction>"],
-      "dept": "조소과"
+      "dept": "조소과",
+      "category": "졸업 전시"
     },
     {
       "id": "ex09",
@@ -169,7 +177,8 @@
       "endDate": "2021.12.11",
       "online-link": "",
       "location": ["홍익대학교 문헌관 4F", "현대미술관 HOMA, 4F, Hongik Meseum of Art <Minifiction>"],
-      "dept": "회화과"
+      "dept": "회화과",
+      "category": "졸업 전시"
     },
     {
       "id": "ex10",
@@ -188,7 +197,76 @@
       "endDate": "2021.12.04",
       "online-link": "",
       "location": ["홍익대학교 문헌관 4F", "현대미술관 HOMA, 4F, Hongik Meseum of Art <Minifiction>"],
-      "dept": "판화과"
+      "dept": "판화과",
+      "category": "졸업 전시"
     }
-  ]
+  ],
+  "goods": {
+    "goodsBanner": [
+      {
+        "id": "goodsBanner01",
+        "poster": "./img/goods-banner-example1.png",
+        "title": "당신의 굿즈에 투표하세요!",
+        "startDate": "2021.12.01",
+        "endDate": "2021.12.14"
+      },
+      {
+        "id": "goodsBanner02",
+        "poster": "./img/goods-banner-example2.png",
+        "title": "홍익대학교 마스코트 공모전",
+        "startDate": "2021.12.08",
+        "endDate": "2021.12.31"
+      }
+    ],
+    "goods": [
+      {
+        "id": "g01",
+        "poster": "./img/goods-example1.png",
+        "title": "hongik 후드",
+        "startDate": "2021.12.01",
+        "endDate": "2021.12.14",
+        "category": "후드티"
+      },
+      {
+        "id": "g02",
+        "poster": "./img/goods-example2.png",
+        "title": "산업디자인과 졸업전시",
+        "startDate": "2021.12.01",
+        "endDate": "2021.12.14",
+        "category": "뱃지"
+      },
+      {
+        "id": "g03",
+        "poster": "./img/goods-example3.png",
+        "title": "산디과 작업복",
+        "startDate": "2021.12.14",
+        "endDate": "2021.12.31",
+        "category": "의류"
+      },
+      {
+        "id": "g04",
+        "poster": "./img/goods-example4.png",
+        "title": "시디과 졸업전시",
+        "startDate": "2021.12.02",
+        "endDate": "2021.12.14",
+        "category": "뱃지"
+      },
+      {
+        "id": "g05",
+        "poster": "./img/goods-example5.png",
+        "title": "시각디자인과 과잠",
+        "startDate": "2021.11.01",
+        "endDate": "2021.12.14",
+        "category": "과잠"
+      },
+      {
+        "id": "g06",
+        "poster": "./img/goods-example6.png",
+        "title": "홍익대학교 야구잠바",
+        "startDate": "2021.12.05",
+        "endDate": "2021.12.14",
+        "category": "야구잠바"
+      }
+    ]
+  }
 }
