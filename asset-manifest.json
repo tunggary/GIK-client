@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/GIK-client/static/css/main.9d196b0c.css",
-    "main.js": "/GIK-client/static/js/main.426b9041.js",
+    "main.js": "/GIK-client/static/js/main.ce2e0d01.js",
     "static/media/Futura Medium.otf": "/GIK-client/static/media/Futura Medium.b4abcb4bbe7b5984f519.otf",
     "index.html": "/GIK-client/index.html",
     "main.9d196b0c.css.map": "/GIK-client/static/css/main.9d196b0c.css.map",
-    "main.426b9041.js.map": "/GIK-client/static/js/main.426b9041.js.map"
+    "main.ce2e0d01.js.map": "/GIK-client/static/js/main.ce2e0d01.js.map"
   },
   "entrypoints": [
     "static/css/main.9d196b0c.css",
-    "static/js/main.426b9041.js"
+    "static/js/main.ce2e0d01.js"
   ]
 }
