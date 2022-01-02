@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Banner from '../components/main/Banner';
+import NewCommunity from '../components/main/NewCommunity';
 import NewestExhibition from '../components/main/NewestExhibition';
 import NewGoods from '../components/main/NewGoods';
 
@@ -10,6 +11,7 @@ export default function main() {
       <InfoWrapper>
         <NewestExhibition></NewestExhibition>
         <NewGoods></NewGoods>
+        <NewCommunity></NewCommunity>
       </InfoWrapper>
     </Container>
   );
