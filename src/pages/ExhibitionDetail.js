@@ -1,13 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import styled from 'styled-components';
 
-export default function Exhibition({ location: { state: data } }) {
-  console.log(data);
+export default function ExhibitionDetail({ location: { state: data } }) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  console.log(data.onlineLink);
   return (
     <Container>
       <ExhibitWrapper>
         <ExhibitHeader>
-          <ExhibitHeaderTitle>전체 전시</ExhibitHeaderTitle>
+          <ExhibitHeaderTitle>{data.category}</ExhibitHeaderTitle>
         </ExhibitHeader>
         <ExhibitionWrapper>
           <ExhibitLeftWrapper>
@@ -17,7 +21,11 @@ export default function Exhibition({ location: { state: data } }) {
               {data.startDate} - <br />
               {data.endDate}
             </ExhibitPeriod>
-            <ExhibitOnlineLink>online link</ExhibitOnlineLink>
+            {data.onlineLink && (
+              <a href={data.onlineLink}>
+                <ExhibitOnlineLink>online link</ExhibitOnlineLink>
+              </a>
+            )}
             {data.location.map((each, index) => (
               <ExhibitLocation key={index} src={each} first={index === 0}>
                 {each}
@@ -74,7 +82,6 @@ const ExhibitionWrapper = styled.div`
 
 const ExhibitLeftWrapper = styled.div`
   width: 25%;
-  height: 500px;
 `;
 
 const ExhibitTitle = styled.div`
@@ -106,7 +113,7 @@ const ExhibitOnlineLink = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: all 0.1s;
+  transition: all 0.2s;
   &:hover {
     color: var(--grey-hover);
     border: 2px solid var(--grey-hover);
@@ -114,8 +121,8 @@ const ExhibitOnlineLink = styled.div`
 `;
 
 const ExhibitLocation = styled.div`
-  width: 10rem;
-  font-size: var(--normal);
+  width: 80%;
+  font-size: var(--small);
   color: var(--grey-link);
   line-height: 1.2rem;
   margin-top: ${({ first }) => (first ? '13rem' : '0.2rem')};
