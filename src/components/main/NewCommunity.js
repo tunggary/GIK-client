@@ -9,7 +9,7 @@ export default function NewCommunity() {
       <CommunityWrapper>
         <CommunityDetailWrapper>
           <CommunityImgWrapper>
-            <CommunityImg src="./svg/community-example1.svg" />
+            <CommunityImg src="./img/community-example1.png" />
           </CommunityImgWrapper>
           <CommunityDetailsWrapper>
             <ComnumityDetailsCategory>구인 / 구직</ComnumityDetailsCategory>
@@ -18,7 +18,7 @@ export default function NewCommunity() {
         </CommunityDetailWrapper>
         <CommunityDetailWrapper>
           <CommunityImgWrapper>
-            <CommunityImg src="./svg/community-example2.svg" />
+            <CommunityImg src="./img/community-example2.png" />
           </CommunityImgWrapper>
           <CommunityDetailsWrapper>
             <ComnumityDetailsCategory>강연</ComnumityDetailsCategory>
@@ -47,7 +47,7 @@ const Category = styled.div`
   height: max-content;
   font-family: 'Futura';
   color: var(--black-title);
-  font-size: var(--h1);
+  font-size: var(--biggest);
   font-weight: var(--regular);
   cursor: pointer;
   text-align: center;
@@ -90,7 +90,7 @@ const ComnumityDetailsCategory = styled.div`
   width: 20%;
   height: 50%;
   color: var(--grey-subtitle);
-  font-size: 1.4rem;
+  font-size: var(--h2);
   font-weight: var(--bold);
 `;
 
@@ -98,6 +98,6 @@ const ComnumityDetailsCategory2 = styled.div`
   width: 77%;
   height: 50%;
   color: var(--grey-subtitle);
-  font-size: var(--h2);
+  font-size: var(--h3);
   font-weight: var(--regular);
 `;

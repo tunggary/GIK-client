@@ -8,22 +8,22 @@ export default function NewGoods() {
       </CategoryWrapper>
       <GoodsWrapper>
         <GoodsDetailWrapper>
-          <GoodsImg src="./svg/goods-example1.svg" />
+          <GoodsImg src="./img/goods-example-main1.png" />
           <GoodsTitle>산업디자인과 졸업전시</GoodsTitle>
           <GoodsSubtitle>에코백 후드티</GoodsSubtitle>
         </GoodsDetailWrapper>
         <GoodsDetailWrapper>
-          <GoodsImg src="./svg/goods-example2.svg" />
+          <GoodsImg src="./img/goods-example-main2.png" />
           <GoodsTitle>홍그와트 시리즈</GoodsTitle>
           <GoodsSubtitle>맨투맨 후드티</GoodsSubtitle>
         </GoodsDetailWrapper>
         <GoodsDetailWrapper>
-          <GoodsImg src="./svg/goods-example3.svg" />
+          <GoodsImg src="./img/goods-example-main3.png" />
           <GoodsTitle>산업디자인과 졸업전시</GoodsTitle>
           <GoodsSubtitle>에코백 테이프 파우치 후드티</GoodsSubtitle>
         </GoodsDetailWrapper>
         <GoodsDetailWrapper>
-          <GoodsImg src="./svg/goods-example4.svg" />
+          <GoodsImg src="./img/goods-example-main4.png" />
           <GoodsTitle>와우영상제</GoodsTitle>
           <GoodsSubtitle>에코백</GoodsSubtitle>
         </GoodsDetailWrapper>
@@ -50,7 +50,7 @@ const Category = styled.div`
   height: max-content;
   font-family: 'Futura';
   color: var(--black-title);
-  font-size: var(--h1);
+  font-size: var(--biggest);
   font-weight: var(--regular);
   cursor: pointer;
   text-align: center;
@@ -82,7 +82,7 @@ const GoodsTitle = styled.div`
   height: 7%;
   font-family: 'Roboto';
   color: var(--grey-subtitle);
-  font-size: var(--h2);
+  font-size: var(--h3);
   font-weight: var(--bold);
   cursor: pointer;
 `;
@@ -92,7 +92,7 @@ const GoodsSubtitle = styled.div`
   height: 5%;
   font-family: 'Roboto';
   color: var(--grey-subsubtitle);
-  font-size: var(--normal);
+  font-size: var(--small);
   font-weight: var(--bold);
   cursor: pointer;
 `;
