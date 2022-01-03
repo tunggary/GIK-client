@@ -7,16 +7,16 @@ export const GlobalStyles = createGlobalStyle`
   :root {
     /*========== Colors ==========*/
     --white: #ffffff;
+    --black: #000000;
     --black-header: #1c1c1e;
+    --black-title: #1C1C1E;
     --grey-hover: #b4b4b4;
     --grey-hover-2: #f3f3f3;
     --grey-subtitle: #636366;
     --grey3: #e5e5ea; 
     --grey-link: #636366;
-    --black-title: #1C1C1E;
-    --black: #000000;
-    --grey-subtitle: #636366;
     --grey-subsubtitle: #8E8E93;
+    --grey-footer: #f2f2f7;
     
     /*========== Font Weights ==========*/
     --thin: 100;
@@ -35,6 +35,7 @@ export const GlobalStyles = createGlobalStyle`
     --normal: .938rem;
     --small: .813rem;
     --smallest: .7rem;
+    --minimize: .4rem;
   }
   * {
     margin: 0;

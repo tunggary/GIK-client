@@ -7,25 +7,22 @@ import Router from './Router';
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Container>
-        <GlobalStyles />
-        <Logo />
-        <Contents>
-          <Router />
-        </Contents>
-      </Container>
+      <GlobalStyles />
+      <Logo />
+      <Contents>
+        <Router />
+      </Contents>
     </ThemeProvider>
   );
 }
 
-const Container = styled.div`
-  width: 100%;
-`;
-
 const Contents = styled.div`
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
+  width: 100%;
+  @media ${(props) => props.theme.tabletMin} {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+  }
 `;

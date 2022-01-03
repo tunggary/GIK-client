@@ -1,24 +1,36 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 import { gitUrl } from '../styles/styles';
+import { useState } from 'react';
 
 export default function Header() {
   const location = useLocation();
   const path = location.pathname.replace(gitUrl, '');
+
+  const [menu, setMenu] = useState(false);
+
+  const activeMenu = () => setMenu((prev) => !prev);
+
+  const closeMenu = () => {
+    if (menu) {
+      activeMenu();
+    }
+  };
+
   return (
     <Container>
-      <MenuWrapper>
-        <MenuList active={path === '/exhibition' || path === '/exhibitionDetail'}>
+      <MenuWrapper active={menu}>
+        <MenuList active={path === '/exhibition' || path === '/exhibitionDetail'} onClick={closeMenu}>
           <Link style={LinkStyle} to={`${gitUrl}/exhibition`}>
             Exhibition
           </Link>
         </MenuList>
-        <MenuList active={path === '/goods'}>
+        <MenuList active={path === '/goods'} onClick={closeMenu}>
           <Link style={LinkStyle} to={`${gitUrl}/goods`}>
             Goods
           </Link>
         </MenuList>
-        <MenuList active={path === '/community'}>
+        <MenuList active={path === '/community'} onClick={closeMenu}>
           <Link style={LinkStyle} to={`${gitUrl}/community`}>
             Community
           </Link>
@@ -28,9 +40,17 @@ export default function Header() {
         <SearchIcon src="./svg/search-icon.svg" />
         <SearchBar placeholder="전시, 작가, 상품 검색" />
       </SearchWrapper>
-      <AccountWrapper>
+      {/* <AccountWrapper>
         <AccountImg src="./svg/my-account.svg" />
-      </AccountWrapper>
+      </AccountWrapper> */}
+      <MobileHeaderWrapper>
+        <MobileHeaderLogo src="./svg/logo-white.svg" />
+        <MobileHamburger onClick={activeMenu}>
+          <MobileHamburgerBar active={menu} first onAnimationEnd={activeMenu} />
+          <MobileHamburgerBar active={menu} second />
+          <MobileHamburgerBar active={menu} third />
+        </MobileHamburger>
+      </MobileHeaderWrapper>
     </Container>
   );
 }
@@ -43,12 +63,17 @@ const LinkStyle = {
   alignItems: 'center',
 };
 
-const Container = styled.nav`
+const Container = styled.header`
   font-family: 'Futura';
   width: 100%;
   height: 4rem;
   background-color: var(--black-header);
   display: flex;
+  @media ${(props) => props.theme.mobile} {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+  }
 `;
 
 const MenuWrapper = styled.ul`
@@ -57,6 +82,16 @@ const MenuWrapper = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media ${(props) => props.theme.mobile} {
+    width: 100%;
+    height: max-content;
+    position: absolute;
+    z-index: 1;
+    top: 4rem;
+    display: block;
+    transition: all 0.5s;
+    transform: ${({ active }) => !active && 'translateY(-100%)'};
+  }
 `;
 
 const MenuList = styled.li`
@@ -69,6 +104,14 @@ const MenuList = styled.li`
   &:hover {
     color: var(--grey-hover);
   }
+  @media ${(props) => props.theme.mobile} {
+    width: 100%;
+    height: 100px;
+    background-color: var(--black-header);
+    color: var(--white);
+    font-size: var(--h2);
+    border-top: 1px solid var(--white);
+  }
 `;
 
 const SearchWrapper = styled.div`
@@ -77,6 +120,9 @@ const SearchWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media ${(props) => props.theme.mobile} {
+    display: none;
+  }
 `;
 
 const SearchIcon = styled.img`
@@ -113,4 +159,49 @@ const AccountImg = styled.img`
   width: 2.6rem;
   height: 2.6rem;
   cursor: pointer;
+`;
+
+const MobileHeaderWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: var(--black-header);
+  position: relative;
+  z-index: 2;
+  @media ${(props) => props.theme.mobileMin} {
+    display: none;
+  }
+`;
+
+const MobileHeaderLogo = styled.img`
+  width: 3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+const MobileHamburger = styled.div`
+  height: 1.3rem;
+  position: absolute;
+  top: 50%;
+  left: 7%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const MobileHamburgerBar = styled.div`
+  width: 1.3rem;
+  background-color: var(--white);
+  border: 1.5px solid var(--white);
+  border-radius: 2px;
+  ${({ first, second, third, active }) =>
+    active &&
+    css`
+      transform: ${first ? 'translateY(0.56rem) rotate(45deg)' : third ? 'translateY(-0.56rem) rotate(-45deg)' : null};
+      opacity: ${second && '0'};
+    `};
+  transition: all 0.2s;
 `;

@@ -29,7 +29,7 @@ const Container = styled.div`
   @media ${(props) => props.theme.laptop} {
     width: 33.3%;
   }
-  @media ${(props) => props.theme.tablet} {
+  @media ${(props) => props.theme.mobile} {
     width: 50%;
   }
 `;
