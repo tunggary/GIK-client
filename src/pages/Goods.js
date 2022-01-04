@@ -71,149 +71,159 @@ export default function Goods() {
   };
 
   return (
-    <Container>
-      <GoodsCategory>
-        <GoodsCategoryHeader>Categories</GoodsCategoryHeader>
-        <GoodsCategoryWrapper>
-          <GoodsCategoryDetail>
-            <GoodsCategoryCheckbox>
-              <input type="checkbox" checked={false} name="controlled" />
-            </GoodsCategoryCheckbox>
-            전시굿즈
-          </GoodsCategoryDetail>
-          <GoodsCategoryDetail>
-            <GoodsCategoryCheckbox>
-              <input type="checkbox" checked={false} name="controlled" />
-            </GoodsCategoryCheckbox>
-            홍익굿즈
-          </GoodsCategoryDetail>
-        </GoodsCategoryWrapper>
-        <GoodsCategoryWrapper>
-          <GoodsCategoryDetail>
-            <GoodsCategoryCheckbox>
-              <input type="checkbox" checked={false} name="controlled" />
-            </GoodsCategoryCheckbox>
-            뱃지
-          </GoodsCategoryDetail>
-          <GoodsCategoryDetail>
-            <GoodsCategoryCheckbox>
-              <input type="checkbox" checked={false} name="controlled" />
-            </GoodsCategoryCheckbox>
-            의류
-          </GoodsCategoryDetail>
-          <GoodsCategoryDetail>
-            <GoodsCategoryCheckbox>
-              <input type="checkbox" checked={false} name="controlled" />
-            </GoodsCategoryCheckbox>
-            문구
-          </GoodsCategoryDetail>
-          <GoodsCategoryDetail>
-            <GoodsCategoryCheckbox>
-              <input type="checkbox" checked={false} name="controlled" />
-            </GoodsCategoryCheckbox>
-            가방
-          </GoodsCategoryDetail>
-        </GoodsCategoryWrapper>
-        <GoodsCategoryWrapper2>
-          <GoodsCategoryDetail>
-            <GoodsCategoryCheckbox>
-              <input type="checkbox" checked={false} name="controlled" />
-            </GoodsCategoryCheckbox>
-            금속조형디자인과
-          </GoodsCategoryDetail>
-          <GoodsCategoryDetail>
-            <GoodsCategoryCheckbox>
-              <input type="checkbox" checked={false} name="controlled" />
-            </GoodsCategoryCheckbox>
-            도예유리과
-          </GoodsCategoryDetail>
-          <GoodsCategoryDetail>
-            <GoodsCategoryCheckbox>
-              <input type="checkbox" checked={false} name="controlled" />
-            </GoodsCategoryCheckbox>
-            동양화과
-          </GoodsCategoryDetail>
-          <GoodsCategoryDetail>
-            <GoodsCategoryCheckbox>
-              <input type="checkbox" checked={false} name="controlled" />
-            </GoodsCategoryCheckbox>
-            목조형가구학과
-          </GoodsCategoryDetail>
-          <GoodsCategoryDetail>
-            <GoodsCategoryCheckbox>
-              <input type="checkbox" checked={false} name="controlled" />
-            </GoodsCategoryCheckbox>
-            산업디자인과
-          </GoodsCategoryDetail>
-          <GoodsCategoryDetail>
-            <GoodsCategoryCheckbox>
-              <input type="checkbox" checked={false} name="controlled" />
-            </GoodsCategoryCheckbox>
-            섬유미술패션디자인과
-          </GoodsCategoryDetail>
-          <GoodsCategoryDetail>
-            <GoodsCategoryCheckbox>
-              <input type="checkbox" checked={false} name="controlled" />
-            </GoodsCategoryCheckbox>
-            시각디자인
-          </GoodsCategoryDetail>
-          <GoodsCategoryDetail>
-            <GoodsCategoryCheckbox>
-              <input type="checkbox" checked={false} name="controlled" />
-            </GoodsCategoryCheckbox>
-            예술학과
-          </GoodsCategoryDetail>
-          <GoodsCategoryDetail>
-            <GoodsCategoryCheckbox>
-              <input type="checkbox" checked={false} name="controlled" />
-            </GoodsCategoryCheckbox>
-            조소과
-          </GoodsCategoryDetail>
-          <GoodsCategoryDetail>
-            <GoodsCategoryCheckbox>
-              <input type="checkbox" checked={false} name="controlled" />
-            </GoodsCategoryCheckbox>
-            판화과
-          </GoodsCategoryDetail>
-          <GoodsCategoryDetail>
-            <GoodsCategoryCheckbox>
-              <input type="checkbox" checked={false} name="controlled" />
-            </GoodsCategoryCheckbox>
-            회화과
-          </GoodsCategoryDetail>
-        </GoodsCategoryWrapper2>
-      </GoodsCategory>
-      <GoodsWrapper>
-        <GoodsBannerWrapper>
-          {dataBanner?.map((banner) => (
-            <GoodsBanner key={banner.id}>
-              <GoodsBannerPoster src={banner.poster} />
-              <GoodsBannerTitle>{banner.title}</GoodsBannerTitle>
-              <GoodsBannerPeriod>
-                {banner.startDate} ~ {banner.endDate.slice(5)}
-              </GoodsBannerPeriod>
-            </GoodsBanner>
-          ))}
-        </GoodsBannerWrapper>
-        <GoodsHeader>
-          <GoodsTitle>굿즈</GoodsTitle>
-          <GoodsSort>
-            <GoodsSortOption onClick={() => setOption((prev) => !prev)}>
-              {filter}
-              <PolygonIcon1 src="./svg/polygon.svg" id="icon" option={option} />
-            </GoodsSortOption>
-            <GoodsFilterWrapper option={option}>{filterList()}</GoodsFilterWrapper>
-          </GoodsSort>
-        </GoodsHeader>
-        <GoodsContentsWrapper>
-          {data?.map((content) => {
-            return <GoodsContent key={content.id} data={content} />;
-          })}
-        </GoodsContentsWrapper>
-      </GoodsWrapper>
-    </Container>
+    <Ready>아직 준비중입니다.</Ready>
+//     <Container>
+//       <GoodsCategory>
+//         <GoodsCategoryHeader>Categories</GoodsCategoryHeader>
+//         <GoodsCategoryWrapper>
+//           <GoodsCategoryDetail>
+//             <GoodsCategoryCheckbox>
+//               <input type="checkbox" checked={false} name="controlled" />
+//             </GoodsCategoryCheckbox>
+//             전시굿즈
+//           </GoodsCategoryDetail>
+//           <GoodsCategoryDetail>
+//             <GoodsCategoryCheckbox>
+//               <input type="checkbox" checked={false} name="controlled" />
+//             </GoodsCategoryCheckbox>
+//             홍익굿즈
+//           </GoodsCategoryDetail>
+//         </GoodsCategoryWrapper>
+//         <GoodsCategoryWrapper>
+//           <GoodsCategoryDetail>
+//             <GoodsCategoryCheckbox>
+//               <input type="checkbox" checked={false} name="controlled" />
+//             </GoodsCategoryCheckbox>
+//             뱃지
+//           </GoodsCategoryDetail>
+//           <GoodsCategoryDetail>
+//             <GoodsCategoryCheckbox>
+//               <input type="checkbox" checked={false} name="controlled" />
+//             </GoodsCategoryCheckbox>
+//             의류
+//           </GoodsCategoryDetail>
+//           <GoodsCategoryDetail>
+//             <GoodsCategoryCheckbox>
+//               <input type="checkbox" checked={false} name="controlled" />
+//             </GoodsCategoryCheckbox>
+//             문구
+//           </GoodsCategoryDetail>
+//           <GoodsCategoryDetail>
+//             <GoodsCategoryCheckbox>
+//               <input type="checkbox" checked={false} name="controlled" />
+//             </GoodsCategoryCheckbox>
+//             가방
+//           </GoodsCategoryDetail>
+//         </GoodsCategoryWrapper>
+//         <GoodsCategoryWrapper2>
+//           <GoodsCategoryDetail>
+//             <GoodsCategoryCheckbox>
+//               <input type="checkbox" checked={false} name="controlled" />
+//             </GoodsCategoryCheckbox>
+//             금속조형디자인과
+//           </GoodsCategoryDetail>
+//           <GoodsCategoryDetail>
+//             <GoodsCategoryCheckbox>
+//               <input type="checkbox" checked={false} name="controlled" />
+//             </GoodsCategoryCheckbox>
+//             도예유리과
+//           </GoodsCategoryDetail>
+//           <GoodsCategoryDetail>
+//             <GoodsCategoryCheckbox>
+//               <input type="checkbox" checked={false} name="controlled" />
+//             </GoodsCategoryCheckbox>
+//             동양화과
+//           </GoodsCategoryDetail>
+//           <GoodsCategoryDetail>
+//             <GoodsCategoryCheckbox>
+//               <input type="checkbox" checked={false} name="controlled" />
+//             </GoodsCategoryCheckbox>
+//             목조형가구학과
+//           </GoodsCategoryDetail>
+//           <GoodsCategoryDetail>
+//             <GoodsCategoryCheckbox>
+//               <input type="checkbox" checked={false} name="controlled" />
+//             </GoodsCategoryCheckbox>
+//             산업디자인과
+//           </GoodsCategoryDetail>
+//           <GoodsCategoryDetail>
+//             <GoodsCategoryCheckbox>
+//               <input type="checkbox" checked={false} name="controlled" />
+//             </GoodsCategoryCheckbox>
+//             섬유미술패션디자인과
+//           </GoodsCategoryDetail>
+//           <GoodsCategoryDetail>
+//             <GoodsCategoryCheckbox>
+//               <input type="checkbox" checked={false} name="controlled" />
+//             </GoodsCategoryCheckbox>
+//             시각디자인
+//           </GoodsCategoryDetail>
+//           <GoodsCategoryDetail>
+//             <GoodsCategoryCheckbox>
+//               <input type="checkbox" checked={false} name="controlled" />
+//             </GoodsCategoryCheckbox>
+//             예술학과
+//           </GoodsCategoryDetail>
+//           <GoodsCategoryDetail>
+//             <GoodsCategoryCheckbox>
+//               <input type="checkbox" checked={false} name="controlled" />
+//             </GoodsCategoryCheckbox>
+//             조소과
+//           </GoodsCategoryDetail>
+//           <GoodsCategoryDetail>
+//             <GoodsCategoryCheckbox>
+//               <input type="checkbox" checked={false} name="controlled" />
+//             </GoodsCategoryCheckbox>
+//             판화과
+//           </GoodsCategoryDetail>
+//           <GoodsCategoryDetail>
+//             <GoodsCategoryCheckbox>
+//               <input type="checkbox" checked={false} name="controlled" />
+//             </GoodsCategoryCheckbox>
+//             회화과
+//           </GoodsCategoryDetail>
+//         </GoodsCategoryWrapper2>
+//       </GoodsCategory>
+//       <GoodsWrapper>
+//         <GoodsBannerWrapper>
+//           {dataBanner?.map((banner) => (
+//             <GoodsBanner key={banner.id}>
+//               <GoodsBannerPoster src={banner.poster} />
+//               <GoodsBannerTitle>{banner.title}</GoodsBannerTitle>
+//               <GoodsBannerPeriod>
+//                 {banner.startDate} ~ {banner.endDate.slice(5)}
+//               </GoodsBannerPeriod>
+//             </GoodsBanner>
+//           ))}
+//         </GoodsBannerWrapper>
+//         <GoodsHeader>
+//           <GoodsTitle>굿즈</GoodsTitle>
+//           <GoodsSort>
+//             <GoodsSortOption onClick={() => setOption((prev) => !prev)}>
+//               {filter}
+//               <PolygonIcon1 src="./svg/polygon.svg" id="icon" option={option} />
+//             </GoodsSortOption>
+//             <GoodsFilterWrapper option={option}>{filterList()}</GoodsFilterWrapper>
+//           </GoodsSort>
+//         </GoodsHeader>
+//         <GoodsContentsWrapper>
+//           {data?.map((content) => {
+//             return <GoodsContent key={content.id} data={content} />;
+//           })}
+//         </GoodsContentsWrapper>
+//       </GoodsWrapper>
+//     </Container>
   );
 }
+
+//준비중일때 css
+const Ready = styled.div`
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Container = styled.div`
   width: 100%;

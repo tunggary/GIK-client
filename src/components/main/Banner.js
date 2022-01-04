@@ -37,6 +37,8 @@ export default function Banner() {
 }
 
 const Container = styled.div`
+  position: relative;
+  z-index: 0;
   width: 100%;
   height: 34vw;
   background-color: orange;

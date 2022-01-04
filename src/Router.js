@@ -30,6 +30,7 @@ export default function Router() {
 const PageContainer = styled.div`
   min-height: calc(100vh - 14rem); //header 4rem, footer 10rem
   @media ${(props) => props.theme.mobile} {
-    min-height: calc(100vh - 17rem); //header 4rem, footer 13rem
+    min-height: calc(100vh - 13rem); //footer 13rem
+    padding-top: 4rem;
   }
 `;

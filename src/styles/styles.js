@@ -50,6 +50,7 @@ export const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
     color:inherit;
+    background-color:inherit;
     &:focus, &:hover, &:visited, &:link, &:active {
         text-decoration: none;
     }
