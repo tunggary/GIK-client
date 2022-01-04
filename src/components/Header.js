@@ -8,12 +8,27 @@ export default function Header() {
   const path = location.pathname.replace(gitUrl, '');
 
   const [menu, setMenu] = useState(false);
+  const [search, setSearch] = useState(false);
 
-  const activeMenu = () => setMenu((prev) => !prev);
+  const activeMenu = () => {
+    closeSearch();
+    setMenu((prev) => !prev);
+  };
 
   const closeMenu = () => {
     if (menu) {
       activeMenu();
+    }
+  };
+
+  const activeSearch = () => {
+    closeMenu();
+    setSearch((prev) => !prev);
+  };
+
+  const closeSearch = () => {
+    if (search) {
+      activeSearch();
     }
   };
 
@@ -36,7 +51,7 @@ export default function Header() {
           </Link>
         </MenuList>
       </MenuWrapper>
-      <SearchWrapper>
+      <SearchWrapper active={search}>
         <SearchIcon src="./svg/search-icon.svg" />
         <SearchBar placeholder="전시, 작가, 상품 검색" />
       </SearchWrapper>
@@ -44,12 +59,15 @@ export default function Header() {
         <AccountImg src="./svg/my-account.svg" />
       </AccountWrapper> */}
       <MobileHeaderWrapper>
-        <MobileHeaderLogo src="./svg/logo-white.svg" />
+        <Link to={`${gitUrl}`} onClick={closeMenu}>
+          <MobileHeaderLogo src="./svg/logo-white.svg" />
+        </Link>
         <MobileHamburger onClick={activeMenu}>
           <MobileHamburgerBar active={menu} first onAnimationEnd={activeMenu} />
           <MobileHamburgerBar active={menu} second />
           <MobileHamburgerBar active={menu} third />
         </MobileHamburger>
+        <MobileSearchIcon src="./svg/search-icon.svg" onClick={activeSearch} />
       </MobileHeaderWrapper>
     </Container>
   );
@@ -70,6 +88,7 @@ const Container = styled.header`
   background-color: var(--black-header);
   display: flex;
   @media ${(props) => props.theme.mobile} {
+    width: 100vw;
     position: fixed;
     top: 0;
     z-index: 1;
@@ -105,12 +124,11 @@ const MenuList = styled.li`
     color: var(--grey-hover);
   }
   @media ${(props) => props.theme.mobile} {
-    width: 100%;
-    height: 100px;
+    width: 35%;
+    height: 5rem;
     background-color: var(--black-header);
     color: var(--white);
-    font-size: var(--h2);
-    border-top: 1px solid var(--white);
+    font-size: var(--h3);
   }
 `;
 
@@ -120,8 +138,16 @@ const SearchWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--black-header);
   @media ${(props) => props.theme.mobile} {
-    display: none;
+    width: 100%;
+    height: 4rem;
+    position: absolute;
+    z-index: 1;
+    top: 4rem;
+    border-top: 1px solid var(--black);
+    transition: all 0.5s;
+    transform: ${({ active }) => !active && 'translateY(-100%)'};
   }
 `;
 
@@ -129,6 +155,10 @@ const SearchIcon = styled.img`
   width: 1.4rem;
   height: 1.4rem;
   cursor: pointer;
+  @media ${(props) => props.theme.mobile} {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
 `;
 
 const SearchBar = styled.input`
@@ -144,6 +174,11 @@ const SearchBar = styled.input`
     color: var(--white);
     font-size: var(--normal);
     font-weight: var(--light);
+  }
+  @media ${(props) => props.theme.mobile} {
+    width: 70%;
+    padding-bottom: 0.1rem;
+    margin-bottom: 0.3rem;
   }
 `;
 
@@ -204,4 +239,13 @@ const MobileHamburgerBar = styled.div`
       opacity: ${second && '0'};
     `};
   transition: all 0.2s;
+`;
+
+const MobileSearchIcon = styled.img`
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 50%;
+  right: 4%;
+  transform: translateY(-50%);
 `;

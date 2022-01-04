@@ -71,38 +71,48 @@ export default function Goods() {
   };
 
   return (
-    <Container>
-      <GoodsWrapper>
-        <GoodsBannerWrapper>
-          {dataBanner?.map((banner) => (
-            <GoodsBanner key={banner.id}>
-              <GoodsBannerPoster src={banner.poster} />
-              <GoodsBannerTitle>{banner.title}</GoodsBannerTitle>
-              <GoodsBannerPeriod>
-                {banner.startDate} ~ {banner.endDate.slice(5)}
-              </GoodsBannerPeriod>
-            </GoodsBanner>
-          ))}
-        </GoodsBannerWrapper>
-        <GoodsHeader>
-          <GoodsTitle>굿즈</GoodsTitle>
-          <GoodsSort>
-            <GoodsSortOption onClick={() => setOption((prev) => !prev)}>
-              {filter}
-              <PolygonIcon1 src="./svg/polygon.svg" id="icon" option={option} />
-            </GoodsSortOption>
-            <GoodsFilterWrapper option={option}>{filterList()}</GoodsFilterWrapper>
-          </GoodsSort>
-        </GoodsHeader>
-        <GoodsContentsWrapper>
-          {data?.map((content) => {
-            return <GoodsContent key={content.id} data={content} />;
-          })}
-        </GoodsContentsWrapper>
-      </GoodsWrapper>
-    </Container>
+    // <Container>
+    //   <GoodsWrapper>
+    //     <GoodsBannerWrapper>
+    //       {dataBanner?.map((banner) => (
+    //         <GoodsBanner key={banner.id}>
+    //           <GoodsBannerPoster src={banner.poster} />
+    //           <GoodsBannerTitle>{banner.title}</GoodsBannerTitle>
+    //           <GoodsBannerPeriod>
+    //             {banner.startDate} ~ {banner.endDate.slice(5)}
+    //           </GoodsBannerPeriod>
+    //         </GoodsBanner>
+    //       ))}
+    //     </GoodsBannerWrapper>
+    //     <GoodsHeader>
+    //       <GoodsTitle>굿즈</GoodsTitle>
+    //       <GoodsSort>
+    //         <GoodsSortOption onClick={() => setOption((prev) => !prev)}>
+    //           {filter}
+    //           <PolygonIcon1 src="./svg/polygon.svg" id="icon" option={option} />
+    //         </GoodsSortOption>
+    //         <GoodsFilterWrapper option={option}>{filterList()}</GoodsFilterWrapper>
+    //       </GoodsSort>
+    //     </GoodsHeader>
+    //     <GoodsContentsWrapper>
+    //       {data?.map((content) => {
+    //         return <GoodsContent key={content.id} data={content} />;
+    //       })}
+    //     </GoodsContentsWrapper>
+    //   </GoodsWrapper>
+    // </Container>
+    <Ready>아직 준비중입니다.</Ready>
   );
 }
+
+//준비중일때 css
+const Ready = styled.div`
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Container = styled.div`
   width: 100%;
