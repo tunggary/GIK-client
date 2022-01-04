@@ -10,6 +10,10 @@ const theme = {
   tablet: `(max-width: ${size.tablet})`,
   laptop: `(max-width: ${size.laptop})`,
   desktop: `(min-width: ${size.desktop})`,
+  mobileMin: `(min-width: ${size.mobile})`,
+  tabletMin: `(min-width: ${size.tablet})`,
+  laptopMin: `(min-width: ${size.laptop})`,
+  desktopMin: `(min-width: ${size.desktop})`,
 };
 
 export default theme;

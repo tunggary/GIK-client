@@ -6,24 +6,17 @@ import GoodsContent from '../components/goods/GoodsContent';
 export default function Goods() {
   //렌더링 데이터
   const [data, setData] = useState(null);
-
-  //손상되지 않는 원본 데이터
-  const [dataBackUp, setDataBackUp] = useState(null);
   const [dataBanner, setDataBanner] = useState(null);
 
   //필터 옵션
   const [option, setOption] = useState(false);
-  const [filter, setFilter] = useState('전체');
-
-  //정렬 옵션
-  const [sortOption, setSortOption] = useState(null);
+  const [filter, setFilter] = useState('시간순');
 
   //처음 렌더링시 데이터 받아옴
   useEffect(() => {
     axios
       .get('./database.json')
       .then((Response) => {
-        setDataBackUp(Response.data?.goods.goods);
         setDataBanner(Response.data?.goods.goodsBanner);
         setData(sortingFunction(Response.data?.goods.goods, true));
       })
@@ -32,55 +25,51 @@ export default function Goods() {
       });
   }, []);
 
-  //날짜 정렬 함수
-  const sortingFunction = (arr, param) => {
+  //필터 옵션 눌렀을때 함수
+  const optionFilter = (filtering) => {
+    if (filtering === '시간순') {
+      setData(sortingFunction(data, true));
+    } else if (filtering === '가나다순') {
+      setData(sortingFunction(data, true, 'title'));
+    }
+    setOption(false);
+    setFilter(filtering);
+  };
+
+  //정렬 함수
+  const sortingFunction = (arr, param, sortingKey = 'startDate') => {
     return arr?.sort((a, b) => {
       if (param) {
-        if (a.startDate > b.startDate) return 1;
-        if (a.startDate < b.startDate) return -1;
-        if (a.startDate == b.startDate) return 0;
+        if (a[sortingKey] > b[sortingKey]) return 1;
+        if (a[sortingKey] < b[sortingKey]) return -1;
+        if (a[sortingKey] == b[sortingKey] && sortingKey == 'startDate') return 0;
+        else {
+          if (a.startDate > b.startDate) return 1;
+          if (a.startDate < b.startDate) return -1;
+          if (a.startDate == b.startDate) return 0;
+        }
       } else {
-        if (a.startDate > b.startDate) return -1;
-        if (a.startDate < b.startDate) return 1;
-        if (a.startDate == b.startDate) return 0;
+        if (a[sortingKey] > b[sortingKey]) return -1;
+        if (a[sortingKey] < b[sortingKey]) return 1;
+        if (a[sortingKey] == b[sortingKey] && sortingKey == 'startDate') return 0;
+        else {
+          if (a.startDate > b.startDate) return -1;
+          if (a.startDate < b.startDate) return 1;
+          if (a.startDate == b.startDate) return 0;
+        }
       }
     });
   };
 
-  //카테고리 옵션 눌렀을때 처리
-  const optionFilter = (filtering) => {
-    setFilter(filtering);
-    setSortOption(false);
-    setOption(false);
-    if (filtering === '전체') {
-      setData(dataBackUp);
-    } else {
-      const filtered = [...dataBackUp].filter((each) => each.category === filtering);
-      setData(sortingFunction(filtered, true));
-    }
-  };
-
-  //시간순 옵션 눌렀을때 처리
-  const optionSortTime = () => {
-    setData(sortingFunction(data, sortOption));
-    setSortOption((prev) => !prev);
-  };
-
   const filterList = () => {
-    if (dataBackUp) {
-      let list = ['전체'];
-      dataBackUp.forEach((element) => {
-        if (!list.includes(element.category)) {
-          list.push(element.category);
-        }
-      });
-      return list.map((each, index) => (
-        <GoodsFilter key={index} check={filter === each} onClick={() => optionFilter(each)}>
-          {each}
-        </GoodsFilter>
-      ));
-    }
+    const list = ['시간순', '인기순', '가나다순'];
+    return list.map((each, index) => (
+      <GoodsFilter key={index} check={filter === each} onClick={() => optionFilter(each)}>
+        {each}
+      </GoodsFilter>
+    ));
   };
+
   return (
     <Container>
       <GoodsCategory>
@@ -213,11 +202,7 @@ export default function Goods() {
               {filter}
               <PolygonIcon1 src="./svg/polygon.svg" id="icon" option={option} />
             </GoodsSortOption>
-            <GoodsSortOption onClick={optionSortTime}>
-              시간순
-              <PolygonIcon2 src="./svg/polygon.svg" id="icon" sort={sortOption} />
-            </GoodsSortOption>
-            <GoodsFilterWrappser option={option}>{filterList()}</GoodsFilterWrappser>
+            <GoodsFilterWrapper option={option}>{filterList()}</GoodsFilterWrapper>
           </GoodsSort>
         </GoodsHeader>
         <GoodsContentsWrapper>
@@ -298,15 +283,16 @@ const GoodsSortOption = styled.div`
   cursor: pointer;
 `;
 
-const GoodsFilterWrappser = styled.div`
+const GoodsFilterWrapper = styled.div`
   position: absolute;
   z-index: 1;
-  right: -2.8rem;
-  top: 2.7rem;
-  width: 16rem;
-  height: max-content;
-  padding: 1rem 0;
-  background-color: var(--grey3);
+  right: -1rem;
+  top: 2.65rem;
+  width: 6rem;
+  height: 8rem;
+  background-color: var(--white);
+  border: 1px solid var(--grey-subsubtitle);
+  border-top: none;
   display: ${({ option }) => (option ? 'flex' : 'none')};
   flex-wrap: wrap;
   justify-content: space-around;
@@ -335,14 +321,6 @@ const PolygonIcon1 = styled.img`
   margin-left: 0.4rem;
   transition: all 0.3s;
   transform: ${({ option }) => (option ? 'rotate(180deg)' : null)};
-`;
-
-const PolygonIcon2 = styled.img`
-  width: 0.8rem;
-  height: 0.8rem;
-  margin-left: 0.4rem;
-  transition: all 0.3s;
-  transform: ${({ sort }) => (sort ? 'rotate(180deg)' : null)};
 `;
 
 const GoodsContentsWrapper = styled.div`

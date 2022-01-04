@@ -102,7 +102,10 @@ export default function Exhibition() {
               시간순
               <PolygonIcon2 src="./svg/polygon.svg" id="icon" sort={sortOption} />
             </ExhibitSortOption>
-            <ExhibitFilterWrappser option={option}>{filterList()}</ExhibitFilterWrappser>
+            <ExhibitFilterWrapper option={option}>
+              {filterList()}
+              <ExhibitFilterLine />
+            </ExhibitFilterWrapper>
           </ExhibitSort>
         </ExhibitHeader>
         <ExhibitionWrapper>
@@ -149,7 +152,7 @@ const ExhibitSortOption = styled.div`
   cursor: pointer;
 `;
 
-const ExhibitFilterWrappser = styled.div`
+const ExhibitFilterWrapper = styled.div`
   position: absolute;
   z-index: 1;
   right: -2.8rem;
@@ -157,7 +160,9 @@ const ExhibitFilterWrappser = styled.div`
   width: 16rem;
   height: 15rem;
   padding: 1rem 0;
-  background-color: var(--grey3);
+  background-color: var(--white);
+  border: 1px solid var(--grey-subsubtitle);
+  border-top: none;
   display: ${({ option }) => (option ? 'flex' : 'none')};
   flex-wrap: wrap;
   justify-content: space-around;
@@ -178,6 +183,15 @@ const ExhibitFilter = styled.div`
   &:hover {
     color: black;
   }
+`;
+
+const ExhibitFilterLine = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-right: 1px solid var(--grey-subsubtitle);
+  height: 90%;
 `;
 
 const PolygonIcon1 = styled.img`
