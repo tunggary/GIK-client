@@ -15,8 +15,8 @@ export const GlobalStyles = createGlobalStyle`
     --grey-subtitle: #636366;
     --grey3: #e5e5ea; 
     --grey-link: #636366;
-    --grey-subsubtitle: #8E8E93;
     --grey-footer: #f2f2f7;
+    --grey-goods-category: #808080;
     
     /*========== Font Weights ==========*/
     --thin: 100;
@@ -45,7 +45,7 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing:border-box;
   }
   input {
-    all: unset;
+   // all: unset;
   }
   a {
     text-decoration: none;
@@ -54,6 +54,12 @@ export const GlobalStyles = createGlobalStyle`
         text-decoration: none;
     }
   }
+  @font-face {
+      font-family: "Futura bt";
+      src: url("./futura medium bt.ttf");
+      font-weight: 300;
+      font-style: normal;;
+    }
   @font-face {
         font-family: "Futura";
         src: local("Futura"),
