@@ -43,8 +43,8 @@ export default function NewestExhibition() {
 }
 
 const Container = styled.div`
-  width: 70%;
-  height: 24rem;
+  width: 75%;
+  height: 100%;
 `;
 const CategoryWrapper = styled.div`
   width: 60%;
@@ -74,7 +74,7 @@ const ExhibitionWrapper = styled.div`
 `;
 
 const ExhibitionDetailWrapper = styled.div`
-  width: 48%;
+  width: 48.5%;
   height: 100%;
   background-color: #f2f2f7;
   display: flex;
