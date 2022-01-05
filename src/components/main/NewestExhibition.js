@@ -10,11 +10,7 @@ export default function NewestExhibition() {
         <ExhibitionDetailWrapper>
           <ExhibitionImg src="./img/exhibition-example1.png" />
           <ExhibitionDetailsWrapper>
-            <ExhibitionNameWrapper>
-              금속조형디자인과
-              <br />
-              졸업전시
-            </ExhibitionNameWrapper>
+            <ExhibitionNameWrapper>금속조형디자인과 졸업전시</ExhibitionNameWrapper>
             <ExhibitionDateWrapper>
               offline :<br /> 2021.11.08 <br />~ 11.12
             </ExhibitionDateWrapper>
@@ -27,9 +23,13 @@ export default function NewestExhibition() {
         <ExhibitionDetailWrapper>
           <ExhibitionImg src="./img/exhibition-example2.png" />
           <ExhibitionDetailsWrapper>
-            <ExhibitionNameWrapper>섬유미술패션디자인과 졸업전시</ExhibitionNameWrapper>
+            <ExhibitionNameWrapper>
+              섬유미술패션디자인과 <br />
+              졸업전시
+            </ExhibitionNameWrapper>
             <ExhibitionDateWrapper>
-              offline : 2021.11.08 <br />~ 11.12
+              offline : <br />
+              2021.11.08 <br />~ 11.12
             </ExhibitionDateWrapper>
             <ExhibitionLinkWrapper>
               <ExhibitionLink>online link</ExhibitionLink>
@@ -44,7 +44,7 @@ export default function NewestExhibition() {
 
 const Container = styled.div`
   margin-top: 1.5rem;
-  width: 70%;
+  width: 100%;
   height: 24rem;
 `;
 const CategoryWrapper = styled.div`
@@ -75,7 +75,7 @@ const ExhibitionWrapper = styled.div`
 `;
 
 const ExhibitionDetailWrapper = styled.div`
-  width: 48%;
+  width: 43%;
   height: 100%;
   background-color: #f2f2f7;
   display: flex;
@@ -84,7 +84,7 @@ const ExhibitionDetailWrapper = styled.div`
 `;
 
 const ExhibitionImg = styled.img`
-  width: 50%;
+  width: 13rem;
   height: 90%;
   cursor: pointer;
 `;
