@@ -8,15 +8,40 @@ export default function NewestExhibition() {
       </CategoryWrapper>
       <ExhibitionWrapper>
         <ExhibitionDetailWrapper>
+          <ExhibitionImg src="./img/exhibition-example3.png" />
+          <ExhibitionDetailsWrapper>
+            <ExhibitionNameWrapper>인권주간 전시</ExhibitionNameWrapper>
+            <ExhibitionDateWrapper>
+              offline : <br />
+              2021.11.01 <br />~ 11.07
+            </ExhibitionDateWrapper>
+            <ExhibitionLinkWrapper>
+              <a href="">
+                <ExhibitionLinkWrapper2>
+                  <ExhibitionLink>online link</ExhibitionLink>
+                  <ExhibitionLinkIcon src="./svg/right-arrow.svg" />
+                </ExhibitionLinkWrapper2>
+              </a>
+            </ExhibitionLinkWrapper>
+          </ExhibitionDetailsWrapper>
+        </ExhibitionDetailWrapper>
+        <ExhibitionDetailWrapper>
           <ExhibitionImg src="./img/exhibition-example1.png" />
           <ExhibitionDetailsWrapper>
-            <ExhibitionNameWrapper>금속조형디자인과 졸업전시</ExhibitionNameWrapper>
+            <ExhibitionNameWrapper>
+              금속조형디자인과 <br />
+              졸업전시
+            </ExhibitionNameWrapper>
             <ExhibitionDateWrapper>
               offline :<br /> 2021.11.08 <br />~ 11.12
             </ExhibitionDateWrapper>
             <ExhibitionLinkWrapper>
-              <ExhibitionLink>online link</ExhibitionLink>
-              <ExhibitionLinkIcon src="./svg/right-arrow.svg" />
+              <a href="https://www.instagram.com/2021hongikmad/?hl=ko">
+                <ExhibitionLinkWrapper2>
+                  <ExhibitionLink>online link</ExhibitionLink>
+                  <ExhibitionLinkIcon src="./svg/right-arrow.svg" />
+                </ExhibitionLinkWrapper2>
+              </a>
             </ExhibitionLinkWrapper>
           </ExhibitionDetailsWrapper>
         </ExhibitionDetailWrapper>
@@ -32,8 +57,12 @@ export default function NewestExhibition() {
               2021.11.08 <br />~ 11.12
             </ExhibitionDateWrapper>
             <ExhibitionLinkWrapper>
-              <ExhibitionLink>online link</ExhibitionLink>
-              <ExhibitionLinkIcon src="./svg/right-arrow.svg" />
+              <a href="https://hongiktafd.com/">
+                <ExhibitionLinkWrapper2>
+                  <ExhibitionLink>online link</ExhibitionLink>
+                  <ExhibitionLinkIcon src="./svg/right-arrow.svg" />
+                </ExhibitionLinkWrapper2>
+              </a>
             </ExhibitionLinkWrapper>
           </ExhibitionDetailsWrapper>
         </ExhibitionDetailWrapper>
@@ -75,7 +104,7 @@ const ExhibitionWrapper = styled.div`
 `;
 
 const ExhibitionDetailWrapper = styled.div`
-  width: 43%;
+  width: 32.5%;
   height: 100%;
   background-color: #f2f2f7;
   display: flex;
@@ -84,9 +113,10 @@ const ExhibitionDetailWrapper = styled.div`
 `;
 
 const ExhibitionImg = styled.img`
-  width: 13rem;
+  width: 11.5rem;
   height: 90%;
   cursor: pointer;
+  margin-right: 0.2rem;
 `;
 
 const ExhibitionDetailsWrapper = styled.div`
@@ -123,16 +153,25 @@ const ExhibitionLinkWrapper = styled.div`
 `;
 
 const ExhibitionLink = styled.div`
-  width: 80%;
+  width: 100%;
   height: max-content;
   font-family: 'Futura';
   font-size: var(--normal);
   color: var(--grey-subtitle);
   font-weight: var(--light);
+  margin-right: 1rem;
 `;
 
 const ExhibitionLinkIcon = styled.img`
   width: 2rem;
   height: 1.4rem;
   cursor: pointer;
+`;
+
+const ExhibitionLinkWrapper2 = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 `;
