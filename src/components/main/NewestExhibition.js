@@ -43,6 +43,7 @@ export default function NewestExhibition() {
 }
 
 const Container = styled.div`
+  margin-top: 1.5rem;
   width: 70%;
   height: 24rem;
 `;

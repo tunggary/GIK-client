@@ -33,10 +33,11 @@ export default function NewCommunity() {
 const Container = styled.div`
   width: 100%;
   height: 36rem;
+  margin-top: 1.5rem;
 `;
 const CategoryWrapper = styled.div`
   width: 30%;
-  height: 15%;
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: start;
@@ -78,24 +79,24 @@ const CommunityImg = styled.img`
 `;
 
 const CommunityDetailsWrapper = styled.div`
-  margin-top: 2%;
+  margin-top: 0.8rem;
   width: 100%;
   height: 20%;
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
 `;
 
 const ComnumityDetailsCategory = styled.div`
-  width: 20%;
+  width: auto;
   height: 50%;
   color: var(--grey-subtitle);
   font-size: var(--h2);
   font-weight: var(--bold);
+  margin-right: 1rem;
 `;
 
 const ComnumityDetailsCategory2 = styled.div`
-  width: 77%;
+  width: auto;
   height: 50%;
   color: var(--grey-subtitle);
   font-size: var(--h3);
