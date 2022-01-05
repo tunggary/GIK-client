@@ -34,12 +34,12 @@ export default function NewGoods() {
 
 const Container = styled.div`
   width: 100%;
-  height: 70%;
-  margin-top: 2%;
+  height: 23rem;
+  margin-top: 1.5rem;
 `;
 const CategoryWrapper = styled.div`
   width: 30%;
-  height: 20%;
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: start;
@@ -59,7 +59,7 @@ const Category = styled.div`
 
 const GoodsWrapper = styled.div`
   width: 100%;
-  height: 100%;
+  height: 18rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -72,12 +72,12 @@ const GoodsDetailWrapper = styled.div`
 
 const GoodsImg = styled.img`
   width: 100%;
-  height: 54%;
+  height: 13rem;
   cursor: pointer;
 `;
 
 const GoodsTitle = styled.div`
-  margin-top: 3%;
+  margin-top: 0.8rem;
   width: 100%;
   height: 7%;
   font-family: 'Roboto';
@@ -94,5 +94,6 @@ const GoodsSubtitle = styled.div`
   color: var(--grey-subsubtitle);
   font-size: var(--small);
   font-weight: var(--bold);
+  margin-top: 0.3rem;
   cursor: pointer;
 `;
