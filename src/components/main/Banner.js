@@ -20,13 +20,16 @@ export default function Banner() {
         pagination={{ clickable: true }}
       >
         <SwiperSlide>
+          <SwiperImg src="./img/example4.png" />
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScl0VNkBTOzCLtd6XiOqQhRLf_mqGiZxz7eMDms6zRYd-yLbA/viewform?usp=sf_link">
+            <OnlineLinkWrapper src="./img/example-link.png" />
+          </a>
+        </SwiperSlide>
+        <SwiperSlide>
           <SwiperImg src="./img/example1.jpeg" />
         </SwiperSlide>
         <SwiperSlide>
           <SwiperImg src="./img/example2.jpeg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SwiperImg src="./img/example3.jpeg" />
         </SwiperSlide>
         <SwiperSlide>
           <SwiperImg src="./img/example3.jpeg" />
@@ -69,4 +72,15 @@ const Container = styled.div`
 const SwiperImg = styled.img`
   width: 100%;
   height: 100%;
+`;
+
+const OnlineLinkWrapper = styled.img`
+  width: 10.8rem;
+  height: 4.53rem;
+  position: absolute;
+  top: 73.5%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 `;
