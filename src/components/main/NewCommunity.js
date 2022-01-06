@@ -34,6 +34,12 @@ const Container = styled.div`
   width: 100%;
   height: 36rem;
   margin-top: 1.5rem;
+  @media ${(props) => props.theme.mobile} {
+    width: 84%;
+    height: max-content;
+    margin-left: 8%;
+    margin-right: 8%;
+  }
 `;
 const CategoryWrapper = styled.div`
   width: 30%;
@@ -41,6 +47,11 @@ const CategoryWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
+  @media ${(props) => props.theme.mobile} {
+    width: 96%;
+    border-top: 1px solid black;
+    padding: 0 2%;
+  }
 `;
 
 const Category = styled.div`
@@ -53,6 +64,10 @@ const Category = styled.div`
   cursor: pointer;
   text-align: center;
   display: flex;
+  @media ${(props) => props.theme.mobile} {
+    font-size: var(--h1);
+    width: 100%;
+  }
 `;
 
 const CommunityWrapper = styled.div`
@@ -60,11 +75,19 @@ const CommunityWrapper = styled.div`
   height: 25rem;
   display: flex;
   justify-content: space-between;
+  @media ${(props) => props.theme.mobile} {
+    height: max-content;
+    justify-content: space-around;
+    margin-bottom: 4rem;
+  }
 `;
 
 const CommunityDetailWrapper = styled.div`
   width: 48.5%;
   height: 100%;
+  @media ${(props) => props.theme.mobile} {
+    width: max-content;
+  }
 `;
 
 const CommunityImgWrapper = styled.div`
@@ -76,6 +99,10 @@ const CommunityImg = styled.img`
   width: 100%;
   height: 100%;
   cursor: pointer;
+  @media ${(props) => props.theme.mobile} {
+    width: 38vw;
+    height: 28.3vw;
+  }
 `;
 
 const CommunityDetailsWrapper = styled.div`
@@ -84,21 +111,37 @@ const CommunityDetailsWrapper = styled.div`
   height: 20%;
   display: flex;
   align-items: flex-start;
+  @media ${(props) => props.theme.mobile} {
+    display: block;
+    margin-top: 0.4rem;
+  }
 `;
 
 const ComnumityDetailsCategory = styled.div`
-  width: auto;
+  width: 20%;
   height: 50%;
   color: var(--grey-subtitle);
-  font-size: var(--h2);
+  font-size: var(--h3);
   font-weight: var(--bold);
   margin-right: 1rem;
+  @media ${(props) => props.theme.mobile} {
+    font-size: var(--normal);
+    width: 38vw;
+    height: max-content;
+    margin-right: 0;
+  }
 `;
 
 const ComnumityDetailsCategory2 = styled.div`
-  width: auto;
+  width: 80%;
   height: 50%;
   color: var(--grey-subtitle);
   font-size: var(--h3);
   font-weight: var(--regular);
+  @media ${(props) => props.theme.mobile} {
+    font-size: var(--normal);
+    width: 38vw;
+    margin-top: 0.4rem;
+    line-height: 1rem;
+  }
 `;

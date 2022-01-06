@@ -35,6 +35,11 @@ export default function Header() {
   return (
     <Container>
       <MenuWrapper active={menu}>
+        <MenuList active={path === '/'} onClick={closeMenu} onlyMobile>
+          <Link style={LinkStyle} to={`${gitUrl}`}>
+            Home
+          </Link>
+        </MenuList>
         <MenuList active={path === '/exhibition' || path === '/exhibitionDetail'} onClick={closeMenu}>
           <Link style={LinkStyle} to={`${gitUrl}/exhibition`}>
             Exhibition
@@ -122,6 +127,9 @@ const MenuList = styled.li`
   transition: color 0.3s ease;
   &:hover {
     color: var(--grey-hover);
+  }
+  @media ${(props) => props.theme.mobileMin} {
+    display: ${({ onlyMobile }) => onlyMobile && 'none'};
   }
   @media ${(props) => props.theme.mobile} {
     width: 35%;
