@@ -159,19 +159,23 @@ const ExhibitionLink = styled.div`
   font-size: var(--normal);
   color: var(--grey-subtitle);
   font-weight: var(--light);
-  margin-right: 1rem;
+  margin-right: 0.8rem;
+  padding: 0.2rem;
 `;
 
 const ExhibitionLinkIcon = styled.img`
-  width: 2rem;
+  width: 1.8rem;
   height: 1.4rem;
   cursor: pointer;
+  padding: 0.2rem;
 `;
 
 const ExhibitionLinkWrapper2 = styled.div`
   width: 100%;
-  height: 100%;
+  height: 2rem;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  border: 1px solid var(--grey-subtitle);
+  border-width: 2px;
 `;
