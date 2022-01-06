@@ -168,7 +168,8 @@ const ExhibitionLink = styled.div`
 `;
 
 const ExhibitionLinkIcon = styled.img`
-  width: 2rem;
+  width: 1.8rem;
   height: 1.4rem;
   cursor: pointer;
+  padding: 0.2rem;
 `;
