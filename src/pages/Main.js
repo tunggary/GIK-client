@@ -18,6 +18,7 @@ export default function main() {
 }
 
 const Container = styled.div``;
+
 const InfoWrapper = styled.div`
   width: 100%;
 `;

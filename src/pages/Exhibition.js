@@ -13,7 +13,7 @@ export default function Exhibition() {
   //필터 옵션
   const [optionFirst, setOptionFirst] = useState(false);
   const [optionSecond, setOptionSecond] = useState(false);
-  const [filterFirst, setFilterFirst] = useState('전체 전시');
+  const [filterFirst, setFilterFirst] = useState('전체');
   const [filterSecond, setFilterSecond] = useState('전체');
 
   //정렬 옵션
@@ -57,13 +57,17 @@ export default function Exhibition() {
     setSortOption(false);
     let filtered = [];
 
-    //모바일화면 일때 처리
+    //모바일화면 아닐때 처리
     if (window.innerWidth > 600) {
-      setOptionFirst(false);
-      setOptionSecond(false);
+      if (optionFirst) {
+        setOptionFirst(false);
+      }
+      if (optionSecond) {
+        setOptionSecond(false);
+      }
     }
 
-    if (filteringFirst === '전체 전시') {
+    if (filteringFirst === '전체') {
       if (filteringSecond === '전체') {
         //전체전시 -> 전체
         setData(dataBackUp);
@@ -94,12 +98,18 @@ export default function Exhibition() {
 
   //top-level 옵션들
   const filterFirstList = (mobile) => {
-    const mobileList = ['전체 전시', '졸업 전시', '과제 전시', '소모임 전시'];
+    const list = ['전체', '졸업', '과제', '소모임', '기타'];
     if (mobile) {
-      return mobileList.map((each, index) => (
+      return list.map((each, index) => (
         <MobileFilter key={index} check={filterFirst === each} onClick={() => optionFilter(each, filterSecond)}>
-          {each}
+          {index !== 0 ? each + ' 전시' : each}
         </MobileFilter>
+      ));
+    } else {
+      return list.map((each, index) => (
+        <FirstFilter key={index} check={filterFirst === each} onClick={() => optionFilter(each, filterSecond)}>
+          {index !== 0 ? each + ' 전시' : each}
+        </FirstFilter>
       ));
     }
   };
@@ -142,13 +152,23 @@ export default function Exhibition() {
       ));
     } else {
       return list.map((each, index) => (
-        <ExhibitFilter key={index} check={filterSecond === each} onClick={() => optionFilter(filterFirst, each)}>
+        <SecondFilter key={index} check={filterSecond === each} onClick={() => optionFilter(filterFirst, each)}>
           {each.split(' ')[0]}
           <br />
           {each.split(' ')[1]}
-        </ExhibitFilter>
+        </SecondFilter>
       ));
     }
+  };
+
+  //column 옵션들
+  const columnList = () => {
+    const list = [1, 2, 3];
+    return list.map((each) => (
+      <MobileColumn key={each} active={column === each} onClick={() => setColumn(each)}>
+        x{each}
+      </MobileColumn>
+    ));
   };
 
   return (
@@ -156,21 +176,22 @@ export default function Exhibition() {
       <ExhibitWrapper>
         <ExhibitHeader>
           <ExhibitTitle onClick={() => setOptionFirst((prev) => !prev)}>
-            {filterFirst} <PolygonIcon src="./svg/polygon.svg" option={optionFirst} onlyMobile />
+            {filterFirst + ' 전시'} <PolygonIcon src="./svg/polygon.svg" option={optionFirst} />
           </ExhibitTitle>
+          <FirstFilterWrapper option={optionFirst}>{filterFirstList(false)}</FirstFilterWrapper>
           <ExhibitSort>
             <ExhibitSortOption onClick={() => setOptionSecond((prev) => !prev)}>
               {filterSecond.length > 7 ? `${filterSecond.slice(0, 6)}...` : filterSecond}
               <PolygonIcon src="./svg/polygon.svg" option={optionSecond} />
             </ExhibitSortOption>
+            <SecondFilterWrapper option={optionSecond}>
+              {filterSecondList(false)}
+              <ExhibitFilterLine />
+            </SecondFilterWrapper>
             <ExhibitSortOption onClick={optionSortTime}>
               시간순
               <PolygonIcon src="./svg/polygon.svg" option={sortOption} />
             </ExhibitSortOption>
-            <ExhibitFilterWrapper option={optionSecond}>
-              {filterSecondList(false)}
-              <ExhibitFilterLine />
-            </ExhibitFilterWrapper>
           </ExhibitSort>
         </ExhibitHeader>
         <MobileOptionWrapper>
@@ -178,19 +199,7 @@ export default function Exhibition() {
           <MobileFilterWrapper visible={optionSecond} boundary={optionFirst && optionSecond}>
             {filterSecondList(true)}
           </MobileFilterWrapper>
-          <MobileColumnWrapper>
-            <MobileColumn active={column === 1} onClick={() => setColumn(1)}>
-              x1
-            </MobileColumn>
-            <MobileColumnline />
-            <MobileColumn active={column === 2} onClick={() => setColumn(2)}>
-              x2
-            </MobileColumn>
-            <MobileColumnline />
-            <MobileColumn active={column === 3} onClick={() => setColumn(3)}>
-              x3
-            </MobileColumn>
-          </MobileColumnWrapper>
+          <MobileColumnWrapper>{columnList()}</MobileColumnWrapper>
         </MobileOptionWrapper>
         <ExhibitionWrapper>
           {data?.map((content) => {
@@ -212,7 +221,7 @@ const MobileOptionWrapper = styled.div`
   }
 `;
 const MobileColumnWrapper = styled.div`
-  width: 8rem;
+  width: 7.5rem;
   height: 3rem;
   display: flex;
   justify-content: space-between;
@@ -222,21 +231,16 @@ const MobileColumnWrapper = styled.div`
 `;
 
 const MobileColumn = styled.div`
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 1.5rem;
+  height: 1.5rem;
   border: 2px solid var(--black-header);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   transition: all 0.1s;
-  color: ${({ active }) => (active ? 'var(--white)' : 'var(--black-header)')};
-  background-color: ${({ active }) => (active ? 'var(--black-header)' : 'var(--white)')};
-`;
-
-const MobileColumnline = styled.div`
-  height: 100%;
-  border-left: 2px solid var(--black-header);
+  color: ${({ active }) => (active ? 'var(--black-header)' : 'var(--white)')};
+  background-color: ${({ active }) => (active ? 'var(--white)' : 'var(--black-header)')};
 `;
 
 const Container = styled.div`
@@ -256,6 +260,7 @@ const ExhibitHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 3rem;
+  position: relative;
   @media ${(props) => props.theme.mobile} {
     width: 90%;
     height: 3rem;
@@ -295,7 +300,7 @@ const ExhibitSortOption = styled.div`
   }
 `;
 
-const ExhibitFilterWrapper = styled.div`
+const SecondFilterWrapper = styled.div`
   position: absolute;
   z-index: 1;
   right: -2.8rem;
@@ -315,7 +320,36 @@ const ExhibitFilterWrapper = styled.div`
   }
 `;
 
-const ExhibitFilter = styled.div`
+const FirstFilterWrapper = styled.div`
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 4.1rem;
+  width: 7rem;
+  height: 12.5rem;
+  padding: 1rem 0;
+  background-color: var(--white);
+  border: 1px solid var(--grey-subsubtitle);
+  border-top: none;
+  display: ${({ option }) => (option ? 'flex' : 'none')};
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  @media ${(props) => props.theme.mobile} {
+    display: none;
+  }
+`;
+
+const FirstFilter = styled.div`
+  font-size: var(--normal);
+  cursor: pointer;
+  color: ${({ check }) => (check ? 'var(--black)' : 'var(--grey-link)')};
+  &:hover {
+    color: black;
+  }
+`;
+
+const SecondFilter = styled.div`
   width: 7rem;
   height: 2.4rem;
   line-height: 1.2rem;
@@ -341,14 +375,11 @@ const ExhibitFilterLine = styled.div`
 `;
 
 const PolygonIcon = styled.img`
-  width: 0.8rem;
-  height: 0.8rem;
+  width: 0.7rem;
+  height: 0.7rem;
   margin-left: 0.4rem;
   transition: all 0.3s;
   transform: ${({ option }) => (option ? 'rotate(180deg)' : null)};
-  @media ${(props) => props.theme.mobileMin} {
-    display: ${({ onlyMobile }) => (onlyMobile ? 'none' : 'inline-block')};
-  }
 `;
 
 const ExhibitionWrapper = styled.div`

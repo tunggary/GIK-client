@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import MobileExhibitionBanner from './MobileExhibitionBanner';
 
 export default function NewestExhibition() {
   return (
@@ -7,6 +8,9 @@ export default function NewestExhibition() {
         <Category>Newest Exhibition</Category>
       </CategoryWrapper>
       <ExhibitionWrapper>
+        <MobileExhibitionWrapper>
+          <MobileExhibitionBanner />
+        </MobileExhibitionWrapper>
         <ExhibitionDetailWrapper>
           <ExhibitionImg src="./img/exhibition-example3.png" />
           <ExhibitionDetailsWrapper>
@@ -15,14 +19,12 @@ export default function NewestExhibition() {
               offline : <br />
               2021.11.01 <br />~ 11.07
             </ExhibitionDateWrapper>
-            <ExhibitionLinkWrapper>
-              <a href="">
-                <ExhibitionLinkWrapper2>
-                  <ExhibitionLink>online link</ExhibitionLink>
-                  <ExhibitionLinkIcon src="./svg/right-arrow.svg" />
-                </ExhibitionLinkWrapper2>
-              </a>
-            </ExhibitionLinkWrapper>
+            <a href="https://www.instagram.com/2021hongikmad/?hl=ko">
+              <ExhibitionLinkWrapper>
+                <ExhibitionLink>online link</ExhibitionLink>
+                <ExhibitionLinkIcon src="./svg/right-arrow.svg" />
+              </ExhibitionLinkWrapper>
+            </a>
           </ExhibitionDetailsWrapper>
         </ExhibitionDetailWrapper>
         <ExhibitionDetailWrapper>
@@ -35,35 +37,12 @@ export default function NewestExhibition() {
             <ExhibitionDateWrapper>
               offline :<br /> 2021.11.08 <br />~ 11.12
             </ExhibitionDateWrapper>
-            <ExhibitionLinkWrapper>
-              <a href="https://www.instagram.com/2021hongikmad/?hl=ko">
-                <ExhibitionLinkWrapper2>
-                  <ExhibitionLink>online link</ExhibitionLink>
-                  <ExhibitionLinkIcon src="./svg/right-arrow.svg" />
-                </ExhibitionLinkWrapper2>
-              </a>
-            </ExhibitionLinkWrapper>
-          </ExhibitionDetailsWrapper>
-        </ExhibitionDetailWrapper>
-        <ExhibitionDetailWrapper>
-          <ExhibitionImg src="./img/exhibition-example2.png" />
-          <ExhibitionDetailsWrapper>
-            <ExhibitionNameWrapper>
-              섬유미술패션디자인과 <br />
-              졸업전시
-            </ExhibitionNameWrapper>
-            <ExhibitionDateWrapper>
-              offline : <br />
-              2021.11.08 <br />~ 11.12
-            </ExhibitionDateWrapper>
-            <ExhibitionLinkWrapper>
-              <a href="https://hongiktafd.com/">
-                <ExhibitionLinkWrapper2>
-                  <ExhibitionLink>online link</ExhibitionLink>
-                  <ExhibitionLinkIcon src="./svg/right-arrow.svg" />
-                </ExhibitionLinkWrapper2>
-              </a>
-            </ExhibitionLinkWrapper>
+            <a href="https://www.instagram.com/2021hongikmad/?hl=ko">
+              <ExhibitionLinkWrapper>
+                <ExhibitionLink>online link</ExhibitionLink>
+                <ExhibitionLinkIcon src="./svg/right-arrow.svg" />
+              </ExhibitionLinkWrapper>
+            </a>
           </ExhibitionDetailsWrapper>
         </ExhibitionDetailWrapper>
       </ExhibitionWrapper>
@@ -74,11 +53,16 @@ export default function NewestExhibition() {
 const Container = styled.div`
   margin-top: 1.5rem;
   width: 100%;
-  height: 24rem;
+  height: max-content;
+  @media ${(props) => props.theme.mobile} {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 `;
 const CategoryWrapper = styled.div`
   width: 60%;
-  height: 20%;
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: start;
@@ -94,6 +78,10 @@ const Category = styled.div`
   cursor: pointer;
   text-align: center;
   display: flex;
+  @media ${(props) => props.theme.mobile} {
+    font-size: var(--h1);
+    width: 100%;
+  }
 `;
 
 const ExhibitionWrapper = styled.div`
@@ -101,27 +89,45 @@ const ExhibitionWrapper = styled.div`
   height: 80%;
   display: flex;
   justify-content: space-between;
+  @media ${(props) => props.theme.mobile} {
+    width: 100%;
+  }
+`;
+
+const MobileExhibitionWrapper = styled.div`
+  width: 100%;
+  height: max-content;
+  @media ${(props) => props.theme.mobileMin} {
+    display: none;
+  }
 `;
 
 const ExhibitionDetailWrapper = styled.div`
-  width: 32.5%;
+  width: 45%;
   height: 100%;
   background-color: #f2f2f7;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  padding: 1rem;
+  @media ${(props) => props.theme.mobile} {
+    display: none;
+  }
 `;
 
 const ExhibitionImg = styled.img`
   width: 11.5rem;
-  height: 90%;
+  height: 16.5rem;
+  object-fit: contain;
   cursor: pointer;
-  margin-right: 0.2rem;
 `;
 
 const ExhibitionDetailsWrapper = styled.div`
-  width: 40%;
-  height: 92%;
+  width: 48%;
+  height: 16.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const ExhibitionNameWrapper = styled.div`
@@ -145,22 +151,20 @@ const ExhibitionDateWrapper = styled.div`
 `;
 
 const ExhibitionLinkWrapper = styled.div`
-  width: 90%;
-  height: 25%;
+  width: 85%;
+  height: 2.6rem;
   display: flex;
   justify-content: space-evenly;
-  align-items: flex-end;
+  align-items: center;
+  font-size: var(--normal);
+  border: 2px solid var(--grey-subtitle);
 `;
 
 const ExhibitionLink = styled.div`
-  width: 100%;
-  height: max-content;
   font-family: 'Futura';
   font-size: var(--normal);
   color: var(--grey-subtitle);
   font-weight: var(--light);
-  margin-right: 0.8rem;
-  padding: 0.2rem;
 `;
 
 const ExhibitionLinkIcon = styled.img`
@@ -168,14 +172,4 @@ const ExhibitionLinkIcon = styled.img`
   height: 1.4rem;
   cursor: pointer;
   padding: 0.2rem;
-`;
-
-const ExhibitionLinkWrapper2 = styled.div`
-  width: 100%;
-  height: 2rem;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  border: 1px solid var(--grey-subtitle);
-  border-width: 2px;
 `;

@@ -42,6 +42,10 @@ const Container = styled.div`
   width: 100%;
   height: 34vw;
   background-color: orange;
+  @media ${(props) => props.theme.tablet} {
+    width: 100vw;
+    height: 55vw;
+  }
   .swiper-pagination-bullet-active {
     background: white !important;
   }

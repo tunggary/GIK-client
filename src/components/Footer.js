@@ -37,10 +37,10 @@ export default function Footer() {
         <FooterRightText>
           대표번호 : 010-9703-7039
           <br />
-          메일 : @
+          메일 : gikartists@gmail.com
         </FooterRightText>
         <FooterRightFollow>
-          Follow US
+          Follow Us
           <IconWrapper>
             <InstagramIcon />
           </IconWrapper>

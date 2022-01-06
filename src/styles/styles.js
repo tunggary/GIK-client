@@ -13,6 +13,7 @@ export const GlobalStyles = createGlobalStyle`
     --grey-hover: #b4b4b4;
     --grey-hover-2: #f3f3f3;
     --grey-subtitle: #636366;
+    --grey-subsubtitle: #8e8e93;
     --grey3: #e5e5ea; 
     --grey-link: #636366;
     --grey-footer: #f2f2f7;
@@ -45,7 +46,7 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing:border-box;
   }
   input {
-   // all: unset;
+    all: unset;
   }
   a {
     text-decoration: none;

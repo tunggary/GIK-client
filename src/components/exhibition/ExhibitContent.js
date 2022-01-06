@@ -20,6 +20,9 @@ export default function ExhibitContent(props) {
               {data.startDate} <br /> ~ {data.endDate.slice(5)}
             </ContentPeriod>
             <ContentSubTitle column={props.column}>{data.subtitle}</ContentSubTitle>
+            <MobileContentPeriod column={props.column}>
+              {data.startDate} ~ {data.endDate.slice(5)}
+            </MobileContentPeriod>
           </ContentInfo>
         </ContentWrapper>
       </Link>
@@ -38,7 +41,7 @@ const Container = styled.div`
   }
   @media ${(props) => props.theme.mobile} {
     width: ${({ column }) => (column === 2 ? '50%' : column === 1 ? '100%' : '33%')};
-    height: ${({ column }) => (column === 2 ? '80vw' : column === 1 ? '140vw' : '70vw')};
+    height: ${({ column }) => (column === 2 ? '85vw' : column === 1 ? '140vw' : '60vw')};
   }
 `;
 
@@ -62,7 +65,7 @@ const ContentWrapper = styled.div`
       background-color: var(--white);
     }
     width: ${({ column }) => (column === 2 ? '40vw' : column === 1 ? '70vw' : '28vw')};
-    max-height: ${({ column }) => (column === 2 ? '80vw' : column === 1 ? '170vw' : '70vw')};
+    max-height: ${({ column }) => (column === 2 ? '85vw' : column === 1 ? '170vw' : '60vw')};
   }
 `;
 
@@ -77,6 +80,7 @@ const ContentImg = styled.img`
 `;
 
 const ContentInfo = styled.div`
+  position: relative;
   width: 11rem;
   margin-top: 0.5rem;
   display: flex;
@@ -88,26 +92,28 @@ const ContentInfo = styled.div`
 
 const ContentTitle = styled.div`
   width: 7rem;
+  height: max-content;
   max-height: 3rem;
   font-size: var(--small);
   font-weight: var(--bold);
   margin-bottom: 0.2rem;
-  line-height: 1rem;
+  line-height: 0.9rem;
   display: -webkit-box;
   -webkit-line-clamp: 3; // 생략 부호가 적용되는 라인 수
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   @media ${(props) => props.theme.mobile} {
-    width: ${({ column }) => (column === 3 ? '100%' : '65%')};
-    font-size: ${({ column }) => (column === 1 ? 'var(--h2)' : null)};
-    line-height: ${({ column }) => (column === 1 ? '1.3rem' : column === 3 ? '0.8rem' : null)};
-    margin-bottom: ${({ column }) => (column === 1 ? '0.4rem' : null)};
+    width: ${({ column }) => (column === 1 ? '65%' : '100%')};
+    font-size: ${({ column }) => (column === 1 ? 'var(--h2)' : 'var(--normal)')};
+    line-height: ${({ column }) => (column === 1 ? '1.3rem' : column === 2 ? '1rem' : null)};
     max-height: ${({ column }) => (column === 1 ? '6rem' : column === 3 ? '2.5rem' : null)};
   }
 `;
+
 const ContentSubTitle = styled.div`
-  max-width: 11rem;
+  height: max-content;
+  width: 7rem;
   max-height: 2.8rem;
   font-size: var(--smallest);
   font-weight: var(--regular);
@@ -117,23 +123,41 @@ const ContentSubTitle = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   @media ${(props) => props.theme.mobile} {
-    width: 100%;
+    width: ${({ column }) => (column === 1 ? '65%' : '100%')};
     max-width: 100%;
-    font-size: ${({ column }) => (column === 1 ? 'var(--h3)' : null)};
+    font-size: ${({ column }) => (column === 1 ? 'var(--h3)' : 'var(--small)')};
     line-height: ${({ column }) => (column === 1 ? '1.3rem' : null)};
     max-height: ${({ column }) => (column === 1 ? '6rem' : null)};
+    margin-bottom: 0.2rem;
   }
 `;
 
 const ContentPeriod = styled.div`
+  position: absolute;
+  right: 0;
   width: 4rem;
+  color: var(--grey-subsubtitle);
   font-size: var(--smallest);
   font-weight: var(--regular);
   text-align: end;
+  width: 35%;
+  line-height: 0.9rem;
   @media ${(props) => props.theme.mobile} {
-    width: 35%;
-    font-size: ${({ column }) => (column === 1 ? 'var(--normal)' : null)};
-    line-height: ${({ column }) => (column === 1 ? '1.1rem' : null)};
-    display: ${({ column }) => (column === 3 ? 'none' : null)};
+    display: ${({ column }) => (column !== 1 ? 'none' : null)};
+    font-size: var(--h3);
+    line-height: 1.4rem;
+    height: 100%;
+  }
+`;
+
+const MobileContentPeriod = styled.div`
+  width: ${({ column }) => (column === 1 ? '35%' : '100%')};
+  color: var(--grey-subsubtitle);
+  font-size: var(--small);
+  font-weight: var(--regular);
+  line-height: ${({ column }) => (column === 1 ? '1.1rem' : null)};
+  display: ${({ column }) => (column === 3 || column === 1 ? 'none' : null)};
+  @media ${(props) => props.theme.mobileMin} {
+    display: none;
   }
 `;

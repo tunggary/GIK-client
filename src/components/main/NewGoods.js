@@ -36,6 +36,13 @@ const Container = styled.div`
   width: 100%;
   height: 23rem;
   margin-top: 1.5rem;
+  @media ${(props) => props.theme.mobile} {
+    width: 84%;
+    height: max-content;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 3rem;
+  }
 `;
 const CategoryWrapper = styled.div`
   width: 30%;
@@ -43,6 +50,11 @@ const CategoryWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
+  @media ${(props) => props.theme.mobile} {
+    width: 96%;
+    border-top: 1px solid black;
+    padding: 0 2%;
+  }
 `;
 
 const Category = styled.div`
@@ -55,6 +67,11 @@ const Category = styled.div`
   cursor: pointer;
   text-align: center;
   display: flex;
+
+  @media ${(props) => props.theme.mobile} {
+    font-size: var(--h1);
+    width: 100%;
+  }
 `;
 
 const GoodsWrapper = styled.div`
@@ -63,17 +80,30 @@ const GoodsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  @media ${(props) => props.theme.mobile} {
+    height: max-content;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 `;
 
 const GoodsDetailWrapper = styled.div`
   width: 23%;
   height: 100%;
+  @media ${(props) => props.theme.mobile} {
+    width: max-content;
+    margin-bottom: 1rem;
+  }
 `;
 
 const GoodsImg = styled.img`
   width: 100%;
   height: 13rem;
   cursor: pointer;
+  @media ${(props) => props.theme.mobile} {
+    width: 38vw;
+    height: 28.3vw;
+  }
 `;
 
 const GoodsTitle = styled.div`
